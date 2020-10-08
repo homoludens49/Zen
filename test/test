@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    <div class="dashboard-item" v-for = "product in Products" :key = "product._id">
+        <h5>{{product.model}}</h5>
+        <h5>{{product.quantity}}</h5> 
+    </div>
+</div>
+
+
+
+
+
+            orderId: data[i].orderId,
+            email: data[i].email,
+            phone: data[i].phone,
+            name: data[i].name,
+            itemNr: data[i].itemNr,
+            sku: data[i].sku,
+            quantity: data[i].quantity,
+            discountAmount: data[i].discountAmount,
+            currentPrice: data[i].currentPrice,
+            itemCost: data[i].itemCost,
+            quantityX: data[i].quantityX,
+            variation: data[i].variation,
+            variationId: data[i].variationId,
+            itemNrX: data[i].itemNrX,
+            itemId: data[i].itemId,
+            orderShippingAmount: data[i].orderShippingAmount,
+            discountAmountX: data[i].discountAmountX,
+            paymentMethodTitleX: data[i].paymentMethodTitleX,
+            wc_shipping_omniva_parcel_machines_lv_terminal: data[i].wc_shipping_omniva_parcel_machines_lv_terminal,
+            wc_shipping_omniva_parcel_machines_lt_terminal: data[i].wc_shipping_omniva_parcel_machines_lt_terminal,
+            wc_shipping_omniva_parcel_machines_ee_terminal: data[i].wc_shipping_omniva_parcel_machines_ee_terminal,
+            adressandbillindX: data[i].adressandbillindX,
+            cityBillingX: data[i].cityBillingX,
+            orderStatusX: data[i].orderStatusX,
+            customerNote: data[i].customerNote,
+            orderDate: data[i].orderDate,
+            countryCode: data[i].countryCode,
+            shipingMethod: data[i].shipingMethod,
+            paymentMethod: data[i].paymentMethod,
+            _parcel_machine: data[i]._parcel_machine,
+            _shipping_address_1: data[i]._shipping_address_1,
+            _shipping_address_2: data[i]._shipping_address_2,
+            _shipping_city: data[i]._shipping_city,
+            _shipping_address_index: data[i]._shipping_address_index,
+            _shipping_postcode: data[i]._shipping_postcode
