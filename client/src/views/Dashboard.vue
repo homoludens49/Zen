@@ -122,12 +122,12 @@
 // const CALCMAIN_URL = 'https://smartmom-dashboard.herokuapp.com/calculations/totalItemsMain'
 
 //DEV MODE
-const PRODAPI_URL = 'http://localhost:3000/products'
-const PRODUPDATEPLUSONEAPI_URL = 'http://localhost:3000/products/updatePlusOne'
-const PRODUPDATEMINUSONEAPI_URL = 'http://localhost:3000/products/updateMinusOne'
-const CALC_URL = 'http://localhost:3000/calculations/totalItems'
-const CALCOMN_URL = 'http://localhost:3000/calculations/totalItemsOmniva'
-const CALCMAIN_URL = 'http://localhost:3000/calculations/totalItemsMain'
+const PRODAPI_URL = 'http://localhost:1337/products'
+const PRODUPDATEPLUSONEAPI_URL = 'http://localhost:1337/products/updatePlusOne'
+const PRODUPDATEMINUSONEAPI_URL = 'http://localhost:1337/products/updateMinusOne'
+const CALC_URL = 'http://localhost:1337/calculations/totalItems'
+const CALCOMN_URL = 'http://localhost:1337/calculations/totalItemsOmniva'
+const CALCMAIN_URL = 'http://localhost:1337/calculations/totalItemsMain'
 
 
 export default {

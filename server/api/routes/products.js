@@ -51,7 +51,7 @@ router.patch('/:sku', (req,res,next)=>{
             message: "Product updated",
             request: {
                 type: "GET",
-                url: 'http://localhost:3000/products/'+sku
+                url: 'http://localhost:1337/products/'+sku
             }
         });
     }).catch(err =>{
@@ -66,7 +66,6 @@ router.post('/updatePlusOne',(req, res, next)=>{
     Product.updateOne({sku:sku, "_id":id},
     {$inc:{quantity:+1}}
     ).then(result =>{
-        console.log(result)
         res.status(201).json({
             message: 'Updated +1'
         })
@@ -82,7 +81,6 @@ router.post('/updateMinusOne',(req, res, next)=>{
     Product.updateOne({sku:sku, "_id":id},
     {$inc:{quantity:-1}}
     ).then(result =>{
-        console.log(result)
         res.status(201).json({
             message: 'Updated -1'
         })
@@ -92,7 +90,21 @@ router.post('/updateMinusOne',(req, res, next)=>{
         res.status(500).json({error: err})
     })
 })
+//delete one entry 
 
+router.delete('/delete', (req,res,next)=>{
+    console.log(req.body)
+    const id = req.body._id
+    Product.delete({"_id":id}).then(result => {
+        res.status(201).json({
+            message: 'Product Deleted'
+        })
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({error: err})
+    })
+})
 
 
 module.exports = router;

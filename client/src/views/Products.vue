@@ -55,7 +55,7 @@ import axios from 'axios'
 //HEKORU
 //const API_URL = 'https://smartmom-dashboard.herokuapp.com/products'
 //DEV
-const API_URL = 'http://localhost:3000/products'
+const API_URL = 'http://localhost:1337/products'
 export default {
     name: 'Products',
     data: () => ({

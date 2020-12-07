@@ -33,7 +33,7 @@ router.post('/orderUpload' ,upload.single('file'), (req ,res)=>{
     const wb = xlsx.readFile(`./fileUploads/${fileName}`)
     const orders = wb.Sheets["Orders"]
     const data = xlsx.utils.sheet_to_json(orders)
-    console.log(data[0])
+    console.log(data)
     for(i=0;i<data.length;i++){
         const sku = data[i].sku
         const orderQuant = data[i].quantity
@@ -43,52 +43,37 @@ router.post('/orderUpload' ,upload.single('file'), (req ,res)=>{
             email: data[i].email,
             phone: data[i].phone,
             name: data[i].name,
-            itemNr: data[i].itemNr,
-            sku: data[i].sku,
+            productname: data[i].productname,
             quantity: data[i].quantity,
-            discountAmount: data[i].discountAmount,
             currentPrice: data[i].currentPrice,
             itemCost: data[i].itemCost,
-            quantityX: data[i].quantityX,
+            discountAmount: data[i].discountAmount,
+            sku: data[i].sku,
             variation: data[i].variation,
             variationId: data[i].variationId,
-            itemNrX: data[i].itemNrX,
-            itemId: data[i].itemId,
             orderShippingAmount: data[i].orderShippingAmount,
-            discountAmountX: data[i].discountAmountX,
-            paymentMethodTitleX: data[i].paymentMethodTitleX,
-            wc_shipping_omniva_parcel_machines_lv_terminal: data[i].wc_shipping_omniva_parcel_machines_lv_terminal,
-            wc_shipping_omniva_parcel_machines_lt_terminal: data[i].wc_shipping_omniva_parcel_machines_lt_terminal,
-            wc_shipping_omniva_parcel_machines_ee_terminal: data[i].wc_shipping_omniva_parcel_machines_ee_terminal,
-            adressandbillindX: data[i].adressandbillindX,
-            cityBillingX: data[i].cityBillingX,
-            orderStatusX: data[i].orderStatusX,
+            addressShipping: data[i].addressShipping,
             customerNote: data[i].customerNote,
             orderDate: data[i].orderDate,
             countryCode: data[i].countryCode,
             shipingMethod: data[i].shipingMethod,
             paymentMethod: data[i].paymentMethod,
             _parcel_machine: data[i]._parcel_machine,
-            _shipping_address_1: data[i]._shipping_address_1,
-            _shipping_address_2: data[i]._shipping_address_2,
-            _shipping_city: data[i]._shipping_city,
-            _shipping_address_index: data[i]._shipping_address_index,
-            _shipping_postcode: data[i]._shipping_postcode
+            link: data[i].link
         });
     order.save()
-    Product.update({sku:sku, "warehouse": "Omniva"},{$inc:{quantity:-orderQuant}}).then(function(product){
+    Product.updateOne({sku:sku, "warehouse": "Omniva"},{$inc:{quantity:-orderQuant}}).then(function(product){
         console.log(product)
     })
     }
     res.send('order succesfully added')
 })
-
+//This is an upload route for React front
 router.post('/productUpload' ,upload.single('file'), (req ,res)=>{
     const fileName = req.file.filename
     const wb = xlsx.readFile(`./fileUploads/${fileName}`)
     const products = wb.Sheets["Products"]
     const data = xlsx.utils.sheet_to_json(products)
-    console.log(data[0])
     for(i=0;i<data.length;i++){
         const product = new Product({
             _id: new mongoose.Types.ObjectId(),
@@ -105,5 +90,6 @@ router.post('/productUpload' ,upload.single('file'), (req ,res)=>{
     }
     res.send('products succesfully added')
 })
+
 
 module.exports = router;

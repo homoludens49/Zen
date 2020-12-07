@@ -46,7 +46,7 @@
 </template>
 
 <script>
-const PRODAPI_URL = 'http://localhost:3000/products'
+const PRODAPI_URL = 'http://localhost:1337/products'
 export default {
   data: () => ({
     products:[],

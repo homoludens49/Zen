@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 
 const Order = require('../models/order');
-const ManualOrder = require('../models/order');
+// const ManualOrder = require('../models/order');
 const Product = require('../models/product');
 
 
@@ -14,6 +14,7 @@ router.get('/', (req,res)=>{
 })
 
 router.post('/', (req,res,next)=>{
+    console.log(req)
     const sku = req.body.sku
     const orderQuant = req.body.quantity
     const order = new ManualOrder({

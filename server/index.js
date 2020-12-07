@@ -3,12 +3,15 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const api = require('./middleware/orderapi')
 require(`dotenv/config`);
 //Routers
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const autoOrderRoutes = require('./api/routes/autoorders');
 const uploadRoutes = require('./api/routes/uploads');
 const calculationsRoutes = require('./api/routes/calculations');
+
 //App
 const app = express();
 //DB Connections
@@ -24,15 +27,13 @@ const db = mongoose.connect(
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(bodyParser.json())
+
 //Routes that handle requests
 app.use('/products', productRoutes)
 app.use('/orders', orderRoutes)
+app.use('/autoorders', autoOrderRoutes)
 app.use('/uploads', uploadRoutes)
 app.use('/calculations', calculationsRoutes)
-
-
-
-
 
 
 //localhost:3000 welcome msg
@@ -58,5 +59,5 @@ res.json({
 })
 });
 
-const port = process.env.PORT || 3000
-app.listen(port, ()=> (console.log(`listening on ${port}`)))
+const port = process.env.PORT || 1337
+app.listen(port, ()=> (console.log(`listening for this on ${port}`)))

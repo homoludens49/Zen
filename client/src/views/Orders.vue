@@ -39,7 +39,7 @@ import axios from 'axios'
 // HEROKU 
 //const API_URL = 'https://smartmom-dashboard.herokuapp.com/orders/'
 //DEV
-const API_URL = 'http://localhost:3000/orders/'
+const API_URL = 'http://localhost:1337/orders/'
 export default {
     name: 'Orders',
     data: () => ({
