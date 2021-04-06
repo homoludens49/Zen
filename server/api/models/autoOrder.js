@@ -6,6 +6,7 @@ const autoOrderSchema = mongoose.Schema({
     email: {type: String, required: true},
     phone: {type: String, required: true},
     name: {type: String, required: true},
+    total: {type: String, required: true},
     order: {type: Array, required: true},
     // order: [{
     //     productname: {type: String, required: true},

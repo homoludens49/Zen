@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "mocha || true",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -16,12 +17,19 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "html-pdf": "^2.2.0",
     "mongoose": "^5.9.2",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
     "nodemon": "^2.0.2",
+    "puppeteer": "^5.5.0",
     "vue": "^2.6.11",
     "woocommerce-api": "^1.5.0",
     "xlsx": "^0.15.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
   }
 }

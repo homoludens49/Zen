@@ -6,7 +6,9 @@
   "scripts": {
     "client": "npm start --prefix client1",
     "server": "npm run dev --prefix server",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "mochaTest": "npm run test --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "concurrently \"npm run mochaTest\""
   },
   "author": "",
   "license": "ISC",
