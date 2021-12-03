@@ -70,7 +70,7 @@ router.post('/create-pdf', (req, res) => {
         if(err) {
             res.send(Promise.reject());
         }
-       // sendEmail(req.body)
+        sendEmail(req.body)
         res.send(Promise.resolve());
         });
     }else{
@@ -84,7 +84,7 @@ router.post('/create-pdf', (req, res) => {
         if(err) {
             res.send(Promise.reject());
         }
-       // sendEmail(req.body)
+        sendEmail(req.body)
         res.send(Promise.resolve());
         });
     }

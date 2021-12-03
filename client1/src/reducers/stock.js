@@ -2,13 +2,22 @@ import {
     GET_STOCK,
     STOCK_ERROR,
     CLEAR_STOCK,
-    UPDATE_STOCK
+    UPDATE_STOCK,
+    GET_TOTALS
 } from '../actions/types'
 
 const initialState = {
     stock: [{model:1,
     quanity:1,
-warehouse:'test'}],
+    warehouse:'test'}],
+    totals:[{quantity:0,
+        sellprice:0,
+        buyprice:0,
+        revenueNoVat:0},
+        {quantity:0,
+            sellprice:0,
+            buyprice:0,
+            revenueNoVat:0},],
     error: {}
 }
 
@@ -36,6 +45,11 @@ export default function(state = initialState, action){
                 ...state,
                 stock: null
             }
+        case GET_TOTALS:
+        return {
+             ...state,
+             totals: payload
+        }
         default: 
             return state           
     }

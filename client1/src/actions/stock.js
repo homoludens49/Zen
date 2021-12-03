@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     GET_STOCK,
     STOCK_ERROR,
-    UPDATE_STOCK
+    UPDATE_STOCK,
+    GET_TOTALS
 } from './types'
 
 export const getStock = ( ) => async dispatch => {
@@ -10,6 +11,21 @@ export const getStock = ( ) => async dispatch => {
         const res = await axios.get('/products')
         dispatch({
             type: GET_STOCK,
+            payload: res.data
+        })
+    } catch (err) {
+        dispatch({
+            type: STOCK_ERROR,
+            payload: { mgg: err.response.statusText, status: err.response.status}
+        })
+    }
+}
+
+export const getTotals = ( ) => async dispatch => {
+    try {
+        const res = await axios.get('/calculations/totalItems')
+        dispatch({
+            type: GET_TOTALS,
             payload: res.data
         })
     } catch (err) {

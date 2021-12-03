@@ -11,12 +11,14 @@ import Metrics from './components/Metrics'
 //Redux
 import { Provider } from 'react-redux'
 import store from './store'
-import {getStock} from './actions/stock'
+import {getStock , getTotals} from './actions/stock'
 
 const App = ()=> {
 
   useEffect(()=> {
-    store.dispatch(getStock())
+    store.dispatch(
+      getStock()
+      )
   }, [])
   return(  
     <Provider store={store}>

@@ -5,10 +5,28 @@ import {updatePlusOne, updateMinusOne, deleteProduct} from '../actions/stock'
 
 
 const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
-    const products = stock.map(p =>(
+    const ganibuDambis = stock.filter(g=>g.warehouse === "Ganibu Dambis 40C")
+    const omniva = stock.filter(o=>o.warehouse === "Omniva")
+    const home = stock.filter(h=>h.warehouse === "Home")
+    const deleteButton= (p) =>{
+        deleteProduct(p)
+    }
+    const plusOne = (p) =>{
+        updatePlusOne(p)
+    }
+    const minusOne = (p) =>{
+        updateMinusOne(p)
+    }
+
+    const productsGD = 
+    ganibuDambis.sort(function(a, b) {
+        if(a.brand < b.brand) { return -1; }
+        if(a.brand > b.brand) { return 1; }
+        return 0;
+      }).map(p =>(
         <tr key={p._id}>
             <td>{p.model}</td>
-            <td>{p.quantity}</td>
+            <td>{p.quantity}</td> 
             <td>
                 <button 
                     onClick={() => plusOne(p)}
@@ -23,7 +41,6 @@ const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
                     className='btn btn-alert'
                 >-</button>
             </td>
-            <td>{p.warehouse}</td>
             <td>
                 <button 
                 className='btn btn-danger'
@@ -32,32 +49,114 @@ const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
             </td>
         </tr>
     ))
-    const deleteButton= (p) =>{
-        deleteProduct(p)
-    }
-    const plusOne = (p) =>{
-        updatePlusOne(p)
-    }
-    const minusOne = (p) =>{
-        updateMinusOne(p)
-    }
+    const productsOm = 
+    omniva.sort(function(a, b) {
+        if(a.brand < b.brand) { return -1; }
+        if(a.brand > b.brand) { return 1; }
+        return 0;
+      }).map(p =>(
+        <tr key={p._id}>
+            <td>{p.model}</td>
+            <td>{p.quantity}</td> 
+            <td>
+                <button 
+                    onClick={() => plusOne(p)}
+                    type="button" 
+                    className='btn btn-success' 
+                >+</button>
+            </td>
+            <td>
+                <button 
+                    onClick={() => minusOne(p)}
+                    type="button" 
+                    className='btn btn-alert'
+                >-</button>
+            </td>
+            <td>
+                <button 
+                className='btn btn-danger'
+                onClick={()=> deleteButton(p)}>
+                    Delete</button>
+            </td>
+        </tr>
+    ))
+    const productsHo = 
+    home.sort(function(a, b) {
+        if(a.brand < b.brand) { return -1; }
+        if(a.brand > b.brand) { return 1; }
+        return 0;
+      }).map(p =>(
+        <tr key={p._id}>
+            <td>{p.model}</td>
+            <td>{p.quantity}</td> 
+            <td>
+                <button 
+                    onClick={() => plusOne(p)}
+                    type="button" 
+                    className='btn btn-success' 
+                >+</button>
+            </td>
+            <td>
+                <button 
+                    onClick={() => minusOne(p)}
+                    type="button" 
+                    className='btn btn-alert'
+                >-</button>
+            </td>
+            <td>
+                <button 
+                className='btn btn-danger'
+                onClick={()=> deleteButton(p)}>
+                    Delete</button>
+            </td>
+        </tr>
+    ))
+    
+
+
     return (
         <Fragment>
-        <h2 className="my-2">Stock</h2>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>Quantity</th>
-                        <th />
-                        <th />
-                        <th>Warehouse</th>
-                        <th />
-                    </tr>
-                </thead>
-        <tbody>{products}</tbody>
-
-            </table>
+            <div className="custom-orders">
+                
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Quantity GanibuDambis</th>
+                            <th />
+                            <th />
+                            <th />
+                        </tr>
+                    </thead>
+                <tbody>{productsGD}</tbody>
+                </table>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Quantity Omniva</th>
+                            <th />
+                            <th />
+                            <th />
+                        </tr>
+                    </thead>
+                <tbody>{productsOm}</tbody>
+                </table>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Quantity Home</th>
+                            <th />
+                            <th />
+                            <th />
+                        </tr>
+                    </thead>
+                <tbody>{productsHo}</tbody>
+                </table>
+            </div>
+        
+            
         </Fragment>
     )
 }
