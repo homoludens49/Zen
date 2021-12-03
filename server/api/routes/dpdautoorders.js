@@ -106,7 +106,7 @@ router.post("/dpdAutoOrders", (req, res, next) => {
 
     return sendres;
   };
-
+// run jinn
   authres(jinnAuth, sendToJinn);
 
   // //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
