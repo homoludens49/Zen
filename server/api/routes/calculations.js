@@ -16,15 +16,14 @@ router.get('/totalItems', (req,res)=>{
             {"_id": "", "quantity": {$sum : "$quantity"},
             "sellprice": {$sum : { $multiply: [ "$sellprice", "$quantity" ] }},
             "buyprice": {$sum : { $multiply: [ "$buyprice", "$quantity" ] }},
-            "revenueNoVat": {$sum : {$divide: [{ $multiply: [ "$sellprice", "$quantity" ] }, 1.21]}}
+            "revenueNoVat": {$sum : {$divide: [{ $multiply: [ "$sellprice", "$quantity" ] }, 1.21]}},
             },  
         },
         
         ]
         ).then(function(sumbyWarehouse){
-        console.log(sumbyWarehouse)
         const result = JSON.stringify(sumbyWarehouse)
-        console.log(result)
+    
         res.send(result);
     })
 })

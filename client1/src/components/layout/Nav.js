@@ -24,6 +24,11 @@ const Nav = () => {
                  Products
              </Link>  
            </li>
+           <li>
+             <Link to="metrics" className="nav-link">
+                 Metrics
+             </Link>  
+           </li>
        </ul>
     )
 }

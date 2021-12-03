@@ -495,7 +495,46 @@ button {
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
+.custom-orders{
+  display: flex;
+ 
+}
+.custom-orders h1{
+  display: flex;
+  margin-right: 50px;
+}
 
+.invoice-container{
+  display: block;
+  color: rgb(112, 112, 112);
+  margin: 50px;
+}
+.invoice-container p{
+  font-size: 10px;
+}
+.rekviziti {
+  display: flex;
+}
+.rekviziti p{
+margin-right: 10px;
+}
+.clienta-rekviziti{
+  display: flex;
+}
+.clienta-rekviziti p{
+  margin-right: 10px;
+}
+.invoice-table{
+  font-size: 10px;
+}
+.summa-table{
+  display: flex;
+  margin-top: 100px;
+  margin-left: 550px;
+}
+.summa-table p{
+  font-size: 13px;
+}
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
