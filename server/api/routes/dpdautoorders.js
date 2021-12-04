@@ -64,7 +64,7 @@ router.post("/dpdAutoOrders", (req, res, next) => {
     shipment: {
       planned_departure_date: Date.parse(req.body.date_created_gmt) / 1000,
       delivery_type: "Pick Up",
-      carrier_id: "7093CR7291297",
+      carrier_id: "7093CR7291298",
       carrier_package_numbers: [req.body.meta_data[7].value],
       package_type: "CTN",
       consolidated: false,
@@ -108,9 +108,6 @@ router.post("/dpdAutoOrders", (req, res, next) => {
   };
   // run jinn
 
-  console.log(sendToJinn);
-  console.log(jinnAuth);
-  console.log(sendToJinn);
   authres(jinnAuth, sendToJinn);
 
   // //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
