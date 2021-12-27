@@ -4,7 +4,7 @@ const AutoOrder = require("../api/models/autoOrder");
 const orderApi = () => {
   axios
     .get(
-      "https://smartmom.shop/wp-json/wc/v2/orders?consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a"
+      "https://smartmom.shop/wp-json/wc/v2/orders?per_page=25&consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a"
     )
     .then((response) => {
       checkOrders(response.data);
@@ -94,7 +94,7 @@ checkOrders = async (orders) => {
   }
 };
 
-module.exports = setInterval(orderApi, 5000);
-module.exports = setInterval(orderApiAlilo, 2800000);
+module.exports = setInterval(orderApi, 200090);
+module.exports = setInterval(orderApiAlilo, 580000);
 
 // module.exports = setInterval(orderApi, 3600000)

@@ -25,8 +25,8 @@ const Nav = () => {
              </Link>  
            </li>
            <li>
-             <Link to="metrics" className="nav-link">
-                 Metrics
+             <Link to="expenses" className="nav-link">
+             Expences
              </Link>  
            </li>
        </ul>

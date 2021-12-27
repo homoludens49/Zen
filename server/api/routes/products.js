@@ -10,7 +10,6 @@ router.use(cors());
 
 router.get('/', (req,res)=>{ 
     Product.find({}).then(function(products){
-        updateStock(products);
         res.send(products);
     })
     console.log('bash message')
