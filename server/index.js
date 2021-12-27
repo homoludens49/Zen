@@ -9,7 +9,7 @@ require(`dotenv/config`);
 //Routers
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
-const expencesRoutes = require("./api/routes/expences");
+const expensesRoutes = require("./api/routes/expenses");
 const autoOrderRoutes = require("./api/routes/autoorders");
 const dpdAutoOrderRoutes = require("./api/routes/dpdautoorders");
 const uploadRoutes = require("./api/routes/uploads");
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 //Routes that handle requests
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
-app.use("/expences", expencesRoutes);
+app.use("/expenses", expensesRoutes);
 app.use("/autoorders", autoOrderRoutes);
 app.use("/dpdautoorders", dpdAutoOrderRoutes);
 app.use("/uploads", uploadRoutes);

@@ -1,7 +1,7 @@
 import * as React from "react";
 //Redux
 import { connect } from "react-redux";
-
+import {createExpense} from '../actions/expenses';
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -327,7 +327,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
+const EnhancedTable=({createExpense})=> {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
@@ -469,7 +469,7 @@ export default function EnhancedTable() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    createExpense(formData);
   };
   return (
     <Box sx={{ width: "100%" }}>
@@ -644,3 +644,9 @@ export default function EnhancedTable() {
     </Box>
   );
 }
+
+EnhancedTable.propTypes = {
+  createExpense: PropTypes.func.isRequired,
+}
+
+export default connect(null,{createExpense})(EnhancedTable)

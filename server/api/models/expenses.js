@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const expenceSchema = mongoose.Schema({
+const expenseSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  name: {
+  expenseName: {
     type: String,
     required: true,
   },
@@ -24,4 +24,4 @@ const expenceSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Expences", expenceSchema);
+module.exports = mongoose.model("Expenses", expenseSchema);

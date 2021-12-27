@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 const cors = require('cors');
-const Expences = require ('../models/expences')
+const Expenses = require ('../models/expenses')
 router.use(cors());
 
 
@@ -15,15 +15,16 @@ router.get('/', (req,res)=>{
 })
 
 router.post('/', (req,res,next)=>{
-    const expence = new Expences({
+    console.log(req.body)
+    const expense = new Expenses({
         _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
+        expenseName: req.body.expenseName,
         vat: req.body.vat,
         month: req.body.month,
         year: req.body.year,
         cost: req.body.cost,
     });
-    expence
+    expense
     .save()
     .then(result =>{
         console.log(result);

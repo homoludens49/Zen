@@ -21,6 +21,7 @@ export const getExpenses = ( ) => async dispatch => {
 }
 export const createExpense = expense => async dispatch => {
     try {
+      
         const res = await axios.post('/expenses', expense)
         dispatch({
             type:CREATE_EXPENSE,

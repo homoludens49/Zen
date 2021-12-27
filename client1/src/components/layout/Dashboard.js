@@ -35,7 +35,7 @@ const Dashboard = ({ stock, totals, stats, getTotals, getStats }) => {
 };
 Dashboard.propTypes = {
   stock: PropTypes.array.isRequired,
-  totals: PropTypes.object.isRequired,
+  totals: PropTypes.array.isRequired,
   getTotals: PropTypes.func.isRequired,
   getStats: PropTypes.func.isRequired,
 };
