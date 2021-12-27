@@ -20,7 +20,6 @@ const expenseSchema = mongoose.Schema({
   },
   cost: {
     type: Number,
-    required: true,
   },
 });
 

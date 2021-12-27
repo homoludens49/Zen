@@ -55,6 +55,28 @@ const FileUpload = () => {
             }
         }
     }
+    const onExpenseSubmit = async e =>{
+        e.preventDefault();
+        const formData = new FormData()
+        formData.append('file', file)
+        try {
+            const res = await axios.post('/uploads/expensesUpload', formData, {
+                headers:{
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            const {fileName, filePath} = res.data
+            setUploadedFile({fileName, filePath})
+        } catch (err) {
+            if(err){
+                if(err.response.status === 500){
+                    console.log('these was a problem with the server')
+                }else{
+                    console.log(err.response.data.msg)
+                }
+            }
+        }
+    }
     return (
         <Fragment>
             <div>
@@ -76,6 +98,20 @@ const FileUpload = () => {
                 <div>
                 <h3>Upload Orders</h3>
                     <input type="file" id="orderFile"
+                    onChange={onChange}></input>
+                    <label className='custom-file-label'>{filename}</label>
+                </div>
+                <input type='submit'
+                value='Upload'
+                className='btn btn-primary'>
+                </input>
+            </form>
+           </div>
+           <div>
+           <form onSubmit={onExpenseSubmit}>
+                <div>
+                <h3>Upload Expenses</h3>
+                    <input type="file" id="expenseFile"
                     onChange={onChange}></input>
                     <label className='custom-file-label'>{filename}</label>
                 </div>

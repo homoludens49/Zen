@@ -8,7 +8,8 @@ router.use(cors());
 
 
 router.get('/', (req,res)=>{ 
-    Expences.find({}).then(function(expences){
+    Expenses.find({}).then(function(expences){
+        
         res.send(expences);
     })
     console.log('bash message')

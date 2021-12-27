@@ -1,7 +1,7 @@
 import { GET_EXPENSES, CREATE_EXPENSE, EXPENSE_ERROR } from "../actions/types";
 
 const initialState = {
-  expences: { name: "1", vat: true, month: "test", year: "", cost: 0 },
+  expenses: [{ name: "1", vat: true, month: "test", year: "", cost: 0 }],
 
   error: {},
 };
@@ -13,12 +13,12 @@ export default function (state = initialState, action) {
     case GET_EXPENSES:
       return {
         ...state,
-        expences: payload,
+        expenses: payload,
       };
     case CREATE_EXPENSE:
       return {
         ...state,
-        expences: payload,
+        expenses: payload,
       };
     case EXPENSE_ERROR:
       return {

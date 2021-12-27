@@ -47,7 +47,6 @@ const convertDate = (date) => {
     (total, order) => total + parseFloat(order.orderShippingAmount),
     0
   );
-  console.log(todaysOrders)
   const totalProducts = totalSales - totalShipping;
   const todayStats = {
     totalSales: totalSales.toFixed(2),

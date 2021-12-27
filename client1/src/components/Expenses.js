@@ -1,7 +1,7 @@
 import * as React from "react";
 //Redux
 import { connect } from "react-redux";
-import {createExpense} from '../actions/expenses';
+import { createExpense, getExpenses } from "../actions/expenses";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -125,7 +125,7 @@ const headCells = [
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Expence Name",
+    label: "Expense Name",
   },
   {
     id: "january",
@@ -230,7 +230,7 @@ function EnhancedTableHead(props) {
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{
-              "aria-label": "select all expences",
+              "aria-label": "select all expenses",
             }}
           />
         </TableCell>
@@ -302,7 +302,7 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          Expences
+          2021 Expenses
         </Typography>
       )}
 
@@ -327,7 +327,10 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-const EnhancedTable=({createExpense})=> {
+const EnhancedTable = ({ createExpense, getExpenses }) => {
+  React.useEffect(() => {
+    getExpenses();
+  }, []);
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
@@ -418,7 +421,7 @@ const EnhancedTable=({createExpense})=> {
   ];
 
   //create const array of objects with label:Salary Income tax Soc. Tax
-  const expences = [
+  const expenses = [
     { label: "Salary" },
     { label: "Soc. Tax" },
     { label: "Income Tax" },
@@ -429,8 +432,6 @@ const EnhancedTable=({createExpense})=> {
     { label: "VAT 21%" },
     { label: "Facebook Adds" },
     { label: "Google Adds" },
-    { label: "Soc. Tax" },
-    { label: "Income Tax" },
     { label: "Interest payment on loan" },
     { label: "Loan base payment" },
     { label: "Car" },
@@ -579,7 +580,7 @@ const EnhancedTable=({createExpense})=> {
           <Autocomplete
             disablePortal
             id="expenseName"
-            options={expences}
+            options={expenses}
             sx={{ width: 300 }}
             renderInput={(params) => (
               <TextField
@@ -643,10 +644,11 @@ const EnhancedTable=({createExpense})=> {
       </Box>
     </Box>
   );
-}
+};
 
 EnhancedTable.propTypes = {
   createExpense: PropTypes.func.isRequired,
-}
+  getExpenses: PropTypes.func.isRequired,
+};
 
-export default connect(null,{createExpense})(EnhancedTable)
+export default connect(null, { createExpense , getExpenses})(EnhancedTable);

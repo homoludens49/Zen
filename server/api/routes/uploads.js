@@ -6,7 +6,7 @@ const multer = require('multer')
 
 const Order = require('../models/order');
 const Product = require('../models/product');
-
+const Expenses = require('../models/expenses');
 
 const upload = multer({
     dest: './fileUploads/'
@@ -90,6 +90,24 @@ router.post('/productUpload' ,upload.single('file'), (req ,res)=>{
     }
     res.send('products succesfully added')
 })
-
+//This is an upload route for React front
+router.post('/expensesUpload' ,upload.single('file'), (req ,res)=>{
+    const fileName = req.file.filename
+    const wb = xlsx.readFile(`./fileUploads/${fileName}`)
+    const expenses = wb.Sheets["Expenses"]
+    const data = xlsx.utils.sheet_to_json(expenses)
+    for(i=0;i<data.length;i++){
+        const expense = new Expenses({
+            _id: new mongoose.Types.ObjectId(),
+            expenseName: data[i].expenseName,
+            vat: data[i].vat,
+            month: data[i].month,
+            year: data[i].year,
+            cost: data[i].cost,
+        });
+        expense.save()
+    }
+    res.send('expenses succesfully added')
+})
 
 module.exports = router;

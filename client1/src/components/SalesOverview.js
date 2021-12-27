@@ -127,7 +127,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                    {stats.totalSales-stats.totalShipping}
+                    {(stats.totalSales-stats.totalShipping).toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
