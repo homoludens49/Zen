@@ -16,9 +16,10 @@ export const getOrders = () => async (dispatch) => {
   }
 };
 
-export const getStats = () => async (dispatch) => {
+export const getStats = (products) => async (dispatch) => {
+
   try {
-    const res = await axios.get("/calculations/stats");
+    const res = await axios.get("/calculations/stats", products.stock);
  
     dispatch({
       type: GET_STATS,

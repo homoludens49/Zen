@@ -16,7 +16,7 @@ const orderApi = () => {
 const orderApiAlilo = () => {
   axios
     .get(
-      "https://alilo.lv/wp-json/wc/v2/orders?consumer_key=ck_3ffb4a3f3bf0b0b87da2245b8f40465c6066bef7&consumer_secret=cs_ec6260b78cd9a9e1dad3c05bc4fda1d7c0ffaa85"
+      "https://alilo.lv/wp-json/wc/v2/orders?per_page=25&consumer_key=ck_3ffb4a3f3bf0b0b87da2245b8f40465c6066bef7&consumer_secret=cs_ec6260b78cd9a9e1dad3c05bc4fda1d7c0ffaa85"
     )
     .then((response) => {
       checkOrders(response.data);
@@ -94,7 +94,7 @@ checkOrders = async (orders) => {
   }
 };
 
-module.exports = setInterval(orderApi, 200090);
-module.exports = setInterval(orderApiAlilo, 580000);
+module.exports = setInterval(orderApi, 500000);
+module.exports = setInterval(orderApiAlilo, 750000);
 
 // module.exports = setInterval(orderApi, 3600000)

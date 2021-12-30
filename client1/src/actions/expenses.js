@@ -8,7 +8,6 @@ import {
 export const getExpenses = ( ) => async dispatch => {
     try {
         const res = await axios.get('/expenses')
-        console.log(res.data)
         dispatch({
             type: GET_EXPENSES,
             payload: res.data
@@ -22,7 +21,6 @@ export const getExpenses = ( ) => async dispatch => {
 }
 export const createExpense = expense => async dispatch => {
     try {
-      
         const res = await axios.post('/expenses', expense)
         dispatch({
             type:CREATE_EXPENSE,

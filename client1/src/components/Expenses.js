@@ -60,36 +60,6 @@ function createData(
   };
 }
 
-const rows = [
-  createData("Salary", 305, 3.7, 67, 4.3),
-  createData("Soc. Tax", 305, 3.7, 67, 4.3),
-  createData("Income Tax", 305, 3.7, 67, 4.3),
-  createData("VSAOI 23,59%", 305, 3.7, 67, 4.3),
-  createData("Raw Material", 305, 3.7, 67, 4.3),
-  createData("Shipping", 305, 3.7, 67, 4.3),
-  createData("Import Tax", 305, 3.7, 67, 4.3),
-  createData("VAT 21%", 305, 3.7, 67, 4.3),
-  createData("Facebook Adds", 305, 3.7, 67, 4.3),
-  createData("Google Adds", 305, 3.7, 67, 4.3),
-  createData("Soc. Tax", 305, 3.7, 67, 4.3),
-  createData("Income Tax", 305, 3.7, 67, 4.3),
-  createData("Interest payment on loan", 305, 3.7, 67, 4.3),
-  createData("Loan base payment", 305, 3.7, 67, 4.3),
-  createData("Car", 305, 3.7, 67, 4.3),
-  createData("Accountancy", 305, 3.7, 67, 4.3),
-  createData("Rent", 305, 3.7, 67, 4.3),
-  createData("Security", 305, 3.7, 67, 4.3),
-  createData("Web page maintanance", 305, 3.7, 67, 4.3),
-  createData("Phone", 305, 3.7, 67, 4.3),
-  createData("Omniva", 305, 3.7, 67, 4.3),
-  createData("DPD", 305, 3.7, 67, 4.3),
-  createData("Equipment", 305, 3.7, 67, 4.3),
-  createData("Side material", 305, 3.7, 67, 4.3),
-  createData("Kommisions", 305, 3.7, 67, 4.3),
-  createData("Gas", 305, 3.7, 67, 4.3),
-  createData("Other", 305, 3.7, 67, 4.3),
-];
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -327,10 +297,11 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-const EnhancedTable = ({ createExpense, getExpenses }) => {
+const EnhancedTable = ({ createExpense, getExpenses, expenses }) => {
   React.useEffect(() => {
     getExpenses();
   }, []);
+
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);
@@ -338,6 +309,2853 @@ const EnhancedTable = ({ createExpense, getExpenses }) => {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(30);
 
+  // all expenses where month is january and year is "2021"
+  const januaryExpenses = expenses.filter(
+    (expense) => expense.month === "january" && expense.year === "2021"
+  );
+  // all expenses where month is february and year is "2021"
+  const februaryExpenses = expenses.filter(
+    (expense) => expense.month === "february" && expense.year === "2021"
+  );
+  // all expenses where month is march and year is "2021"
+  const marchExpenses = expenses.filter(
+    (expense) => expense.month === "march" && expense.year === "2021"
+  );
+  // all expenses where month is april and year is "2021"
+  const aprilExpenses = expenses.filter(
+    (expense) => expense.month === "april" && expense.year === "2021"
+  );
+  // all expenses where month is may and year is "2021"
+  const mayExpenses = expenses.filter(
+    (expense) => expense.month === "may" && expense.year === "2021"
+  );
+  // all expenses where month is june and year is "2021"
+  const juneExpenses = expenses.filter(
+    (expense) => expense.month === "june" && expense.year === "2021"
+  );
+  // all expenses where month is july and year is "2021"
+  const julyExpenses = expenses.filter(
+    (expense) => expense.month === "july" && expense.year === "2021"
+  );
+  // all expenses where month is august and year is "2021"
+  const augustExpenses = expenses.filter(
+    (expense) => expense.month === "august" && expense.year === "2021"
+  );
+  // all expenses where month is september and year is "2021"
+  const septemberExpenses = expenses.filter(
+    (expense) => expense.month === "september" && expense.year === "2021"
+  );
+  // all expenses where month is october and year is "2021"
+  const octoberExpenses = expenses.filter(
+    (expense) => expense.month === "october" && expense.year === "2021"
+  );
+  // all expenses where month is november and year is "2021"
+  const novemberExpenses = expenses.filter(
+    (expense) => expense.month === "november" && expense.year === "2021"
+  );
+  // all expenses where month is december and year is "2021"
+  const decemberExpenses = expenses.filter(
+    (expense) => expense.month === "december" && expense.year === "2021"
+  );
+
+
+  // const salaryCost = salary.map((expense) => expense.cost);
+  // const salaryCostTotal = salaryCost.reduce((a, b) => a + b, 0);
+
+  const rows = [
+    createData(
+      "Total",
+      januaryExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      februaryExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      marchExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      aprilExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      mayExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      juneExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      julyExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      augustExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      septemberExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      octoberExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      novemberExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0),
+      decemberExpenses.reduce((acc, curr) => acc + curr.cost, 0).toFixed(0)
+    ),
+//#region january
+    createData(
+      "Salary",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Salary") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Soc. Tax",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Soc. Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Income tax",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Income tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "VSAOI 23,59%",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VSAOI 23,59%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Raw Material",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Raw Material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Shipping",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Shipping") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Import Tax",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Import Tax") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "VAT 21%",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "VAT 21%") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Facebook adds",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Facebook adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Google Adds",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Google Adds") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Interest payment on loan",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Interest payment on loan") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Loan base payment",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Loan base payment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Car",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Car") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Accountancy",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Accountancy") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Rent",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Rent") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Security",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Security") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Web page maintanance",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Web page maintanance") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Phone",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Phone") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Omniva",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Omniva") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "DPD",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "DPD") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Equipment",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Equipment") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Side material",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Side material") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Kommisions",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Kommisions") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Gas",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Gas") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+    createData(
+      "Other",
+      januaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      februaryExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      marchExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      aprilExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      mayExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      juneExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      julyExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      augustExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      septemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      octoberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      novemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0),
+      decemberExpenses
+        .reduce((acc, curr) => {
+          if (curr.expenseName === "Other") {
+            return acc + curr.cost;
+          } else {
+            return acc;
+          }
+        }, 0)
+        .toFixed(0)
+    ),
+  ];
+//#endregion
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -421,16 +3239,16 @@ const EnhancedTable = ({ createExpense, getExpenses }) => {
   ];
 
   //create const array of objects with label:Salary Income tax Soc. Tax
-  const expenses = [
+  const expensesLabels = [
     { label: "Salary" },
     { label: "Soc. Tax" },
-    { label: "Income Tax" },
+    { label: "Income tax" },
     { label: "VSAOI 23,59%" },
     { label: "Raw Material" },
     { label: "Shipping" },
     { label: "Import Tax" },
     { label: "VAT 21%" },
-    { label: "Facebook Adds" },
+    { label: "Facebook adds" },
     { label: "Google Adds" },
     { label: "Interest payment on loan" },
     { label: "Loan base payment" },
@@ -535,6 +3353,7 @@ const EnhancedTable = ({ createExpense, getExpenses }) => {
                       <TableCell align="right">{row.july}</TableCell>
                       <TableCell align="right">{row.august}</TableCell>
                       <TableCell align="right">{row.september}</TableCell>
+                      <TableCell align="right">{row.october}</TableCell>
                       <TableCell align="right">{row.november}</TableCell>
                       <TableCell align="right">{row.december}</TableCell>
                       <TableCell align="right">{row.total}</TableCell>
@@ -580,7 +3399,7 @@ const EnhancedTable = ({ createExpense, getExpenses }) => {
           <Autocomplete
             disablePortal
             id="expenseName"
-            options={expenses}
+            options={expensesLabels}
             sx={{ width: 300 }}
             renderInput={(params) => (
               <TextField
@@ -650,5 +3469,10 @@ EnhancedTable.propTypes = {
   createExpense: PropTypes.func.isRequired,
   getExpenses: PropTypes.func.isRequired,
 };
+const mapStateToProps = (state) => ({
+  expenses: state.expenses.expenses,
+});
 
-export default connect(null, { createExpense , getExpenses})(EnhancedTable);
+export default connect(mapStateToProps, { createExpense, getExpenses })(
+  EnhancedTable
+);

@@ -14,7 +14,7 @@ import { Button } from "@mui/material";
 const Dashboard = ({ stock, totals, stats, getTotals, getStats }) => {
   useEffect(() => {
     getTotals();
-    getStats();
+    getStats(stock);
   }, []);
 
   return (
