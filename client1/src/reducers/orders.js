@@ -6,7 +6,15 @@ const initialState = {
     totalShipping: 0.0,
     totalProducts: 0.0,
     totalOmniva: 0.0,
-    totalDPD: 0.0
+    totalDPD: 0.0,
+    data:{
+      sum: 0.00,
+      shipping: 0.00,
+      productCount: 0,
+      costOfGoodsSold: 0.00,
+      totalExpenses: 0.00,
+      totalNet: 0.00,
+    }
   },
   orders: 
     [{

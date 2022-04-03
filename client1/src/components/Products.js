@@ -7,7 +7,7 @@ import {updatePlusOne, updateMinusOne, deleteProduct} from '../actions/stock'
 const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
     const ganibuDambis = stock.filter(g=>g.warehouse === "Ganibu Dambis 40C")
     const omniva = stock.filter(o=>o.warehouse === "Omniva")
-    const home = stock.filter(h=>h.warehouse === "Home")
+    const dpd = stock.filter(h=>h.warehouse === "DPD")
     const deleteButton= (p) =>{
         deleteProduct(p)
     }
@@ -80,8 +80,8 @@ const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
             </td>
         </tr>
     ))
-    const productsHo = 
-    home.sort(function(a, b) {
+    const productsDpd = 
+    dpd.sort(function(a, b) {
         if(a.brand < b.brand) { return -1; }
         if(a.brand > b.brand) { return 1; }
         return 0;
@@ -152,7 +152,7 @@ const Products = ({stock, updatePlusOne, updateMinusOne, deleteProduct}) => {
                             <th />
                         </tr>
                     </thead>
-                <tbody>{productsHo}</tbody>
+                <tbody>{productsDpd}</tbody>
                 </table>
             </div>
         

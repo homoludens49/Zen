@@ -364,4 +364,4 @@ const updateShop = async () => {
   productApi(omnivaStock);
 };
 
-module.exports = setInterval(updateShop, 900000);
+module.exports = setInterval(updateShop, 9000000);

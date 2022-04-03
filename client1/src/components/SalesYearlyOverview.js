@@ -8,10 +8,10 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import SavingsIcon from '@mui/icons-material/Savings';
-const SalesOverview = ({ stats }) => {
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import SavingsIcon from "@mui/icons-material/Savings";
+const SalesYearlyOverview = ({ stats }) => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -21,20 +21,19 @@ const SalesOverview = ({ stats }) => {
 
   return (
     <Fragment>
-      <Grid item xs={0} sm={2}>
-        {" "}
-      </Grid>
+      
       <Grid item xs={12} sm={4}>
         <Item>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Item>Sales Today</Item>
+              <Item>Sales This Year</Item>
             </Grid>
             <Grid container item xs={12} sm={6} direction="row">
               <Grid
                 container
                 item
-                xs={12} sm={6}
+                xs={12}
+                sm={6}
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
@@ -50,14 +49,14 @@ const SalesOverview = ({ stats }) => {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Total Orders
+                    Total Products Sold
                   </Typography>
 
                   <Typography
                     sx={{ mb: 1.5, fontSize: 52 }}
                     color="text.secondary"
                   >
-                    {stats.totalOmniva + stats.totalDPD}
+                    {stats.data.productCount}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -69,7 +68,8 @@ const SalesOverview = ({ stats }) => {
               <Grid
                 container
                 item
-                xs={12} sm={6}
+                xs={12}
+                sm={6}
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
@@ -92,7 +92,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                    {stats.totalSales}
+                    {stats.data.sum.toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -104,7 +104,8 @@ const SalesOverview = ({ stats }) => {
               <Grid
                 container
                 item
-                xs={12} sm={6}
+                xs={12}
+                sm={6}
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
@@ -127,7 +128,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                      {stats.totalSales}
+                    {stats.data.totalNet.toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -139,7 +140,8 @@ const SalesOverview = ({ stats }) => {
               <Grid
                 container
                 item
-                xs={12} sm={6}
+                xs={12}
+                sm={6}
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
@@ -151,7 +153,6 @@ const SalesOverview = ({ stats }) => {
               <Grid item xs={6}>
                 <CardContent>
                   <Typography
-                  
                     sx={{ fontSize: 14 }}
                     color="text.secondary"
                     gutterBottom
@@ -163,7 +164,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                    {stats.totalShipping}
+                    {(stats.data.totalExpenses + stats.data.costOfGoodsSold).toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -178,4 +179,4 @@ const SalesOverview = ({ stats }) => {
   );
 };
 
-export default SalesOverview;
+export default SalesYearlyOverview;

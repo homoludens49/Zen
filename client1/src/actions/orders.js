@@ -11,24 +11,25 @@ export const getOrders = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: ORDERS_ERROR,
-      payload: { mgg: err.response.statusText, status: err.response.status },
+      payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
 };
 
-export const getStats = (products) => async (dispatch) => {
+export const getStats = () => async (dispatch) => {
 
   try {
-    const res = await axios.get("/calculations/stats", products.stock);
+    const res = await axios.get("/calculations/stats");
  
     dispatch({
       type: GET_STATS,
       payload: res.data,
     });
   } catch (err) {
+    console.log(err)
     dispatch({
       type: ORDERS_ERROR,
-      payload: { mgg: err.response.statusText, status: err.response.status },
+      payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
 };

@@ -11,7 +11,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import SavingsIcon from '@mui/icons-material/Savings';
-const SalesOverview = ({ stats }) => {
+const SalesMonthlyOverview = ({ stats }) => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -28,7 +28,7 @@ const SalesOverview = ({ stats }) => {
         <Item>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Item>Sales Today</Item>
+              <Item>Sales This Month</Item>
             </Grid>
             <Grid container item xs={12} sm={6} direction="row">
               <Grid
@@ -50,14 +50,14 @@ const SalesOverview = ({ stats }) => {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Total Orders
+                    Total Products Sold
                   </Typography>
 
                   <Typography
                     sx={{ mb: 1.5, fontSize: 52 }}
                     color="text.secondary"
                   >
-                    {stats.totalOmniva + stats.totalDPD}
+                   {stats.data.productCount}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -92,7 +92,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                    {stats.totalSales}
+                    {stats.data.sum.toFixed(2)+stats.data.shipping.toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -127,7 +127,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                      {stats.totalSales}
+                        {stats.data.totalNet.toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -163,7 +163,7 @@ const SalesOverview = ({ stats }) => {
                     sx={{ mb: 1.5, fontSize: 36 }}
                     color="text.secondary"
                   >
-                    {stats.totalShipping}
+                     {(stats.data.totalExpenses + stats.data.costOfGoodsSold).toFixed(2)}
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -178,4 +178,4 @@ const SalesOverview = ({ stats }) => {
   );
 };
 
-export default SalesOverview;
+export default SalesMonthlyOverview;
