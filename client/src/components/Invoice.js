@@ -25,10 +25,10 @@ class Invoice extends React.Component {
             (<tr key={i.id}>
                <td>{i.name}</td>
                <td>{i.quantity}</td>
+               <td>{(i.price/1.21).toFixed(2)}</td>
+               <td>{(i.price-(i.price/1.21)).toFixed(2)}</td>
                <td>{i.price.toFixed(2)}</td>
-               <td>{(i.price*0.21).toFixed(2)}</td>
-               <td>{(i.price+(i.price*0.21)).toFixed(2)}</td>
-                <td>{(i.price+(i.price*0.21)).toFixed(2)*i.quantity}</td>
+                <td>{i.price.toFixed(2)*i.quantity}</td>
               
             </tr>
             ))
@@ -86,6 +86,7 @@ class Invoice extends React.Component {
                 {this.props.location.state.phone}<br/> 
                 {this.props.location.state.email}<br/>  
                 {this.props.location.state.customerNote}<br/>  
+                {console.log(this.props.location.state)}
                 </p>
             </div>
             <br/>

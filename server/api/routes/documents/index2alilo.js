@@ -165,16 +165,16 @@ return `
                 <tr class="item">
                     <td>${order[0].name}</td>
                     <td>${order[0].quantity}</td>
-                    <td>€ ${(order[0].price-(order[0].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[0].price*0.21).toFixed(2)}</td>
+                    <td>€ ${(order[0].price/1.21).toFixed(2)}</td>
+                    <td>€ ${(order[0].price-(order[0].price/1.21)).toFixed(2)}</td>
                     <td>€ ${order[0].price.toFixed(2)}</td>
                     <td>€ ${order[0].price.toFixed(2)*order[0].quantity}</td>
                 </tr>
                 <tr class="item">
                     <td>${order[1].name}</td>
                     <td>${order[1].quantity}</td>
-                    <td>€ ${(order[1].price-(order[1].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[1].price*0.21).toFixed(2)}</td>
+                    <td>€ ${(order[1].price/1.21).toFixed(2)}</td>
+                    <td>€ ${(order[1].price-(order[1].price/1.21)).toFixed(2)}</td>
                     <td>€ ${order[1].price.toFixed(2)}</td>
                     <td>€ ${order[1].price.toFixed(2)*order[1].quantity}</td>
                 </tr>

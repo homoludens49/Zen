@@ -13,8 +13,6 @@ router.get("/", (req, res) => {
 
 router.post("/autoOrders", (req, res, next) => {
   //This part adds an Order from API that are fetched every 15 min
-
-  console.log(req.body)
   const autoOrder = new AutoOrder({
     _id: new mongoose.Types.ObjectId(),
     orderId: req.body.id,

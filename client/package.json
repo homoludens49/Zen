@@ -54,4 +54,6 @@
     ]
   },
   "proxy": "http://localhost:1337"
+
 }
+

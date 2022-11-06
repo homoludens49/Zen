@@ -1,7 +1,17 @@
-module.exports = ({ orderId,  name, addressShipping,phone,email,customerNote, orderShippingAmount, total, order }) => {
-   const today = new Date();
-   
-return `
+module.exports = ({
+  orderId,
+  name,
+  addressShipping,
+  phone,
+  email,
+  customerNote,
+  orderShippingAmount,
+  total,
+  order,
+}) => {
+  const today = new Date();
+
+  return `
     <!doctype html>
     <html>
        <head>
@@ -123,7 +133,9 @@ return `
                          </tr>
                          <tr>
                             <td class="title2">
-                              Pasutijuma Datums: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                              Pasutijuma Datums: ${`${today.getDate()}. ${
+                                today.getMonth() + 1
+                              }. ${today.getFullYear()}.`}
                             </td>
                          </tr>
                       </table>
@@ -165,50 +177,66 @@ return `
                 <tr class="item">
                     <td>${order[0].name}</td>
                     <td>${order[0].quantity}</td>
-                    <td>€ ${(order[0].price-(order[0].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[0].price*0.21).toFixed(2)}</td>
+                    <td>€ ${(order[0].price / 1.21).toFixed(2)}</td>
+                    <td>€ ${(order[0].price - order[0].price / 1.21).toFixed(
+                      2
+                    )}</td>
                     <td>€ ${order[0].price.toFixed(2)}</td>
-                    <td>€ ${order[0].price.toFixed(2)*order[0].quantity}</td>
+                    <td>€ ${order[0].price.toFixed(2) * order[0].quantity}</td>
                 </tr>
                 <tr class="item">
                     <td>${order[1].name}</td>
                     <td>${order[1].quantity}</td>
-                    <td>€ ${(order[1].price-(order[1].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[1].price*0.21).toFixed(2)}</td>
+                    <td>€ ${(order[1].price / 1.21).toFixed(2)}</td>
+                    <td>€ ${(order[1].price - order[1].price / 1.21).toFixed(
+                      2
+                    )}</td>
                     <td>€ ${order[1].price.toFixed(2)}</td>
-                    <td>€ ${order[1].price.toFixed(2)*order[1].quantity}</td>
+                    <td>€ ${order[1].price.toFixed(2) * order[1].quantity}</td>
                 </tr>
                 <tr class="item">
-                    <td>${order[2].name}</td>
-                    <td>${order[2].quantity}</td>
-                    <td>€ ${(order[2].price-(order[2].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[2].price*0.21).toFixed(2)}</td>
-                    <td>€ ${order[2].price.toFixed(2)}</td>
-                    <td>€ ${order[2].price.toFixed(2)*order[2].quantity}</td>
+                  <td>${order[2].name}</td>
+                  <td>${order[2].quantity}</td>
+                  <td>€ ${(order[2].price / 1.21).toFixed(2)}</td>
+                  <td>€ ${(order[2].price - order[2].price / 1.21).toFixed(
+                    2
+                  )}</td>
+                  <td>€ ${order[2].price.toFixed(2)}</td>
+                  <td>€ ${order[2].price.toFixed(2) * order[2].quantity}</td>
                 </tr>
                 <tr class="item">
-                    <td>${order[3].name}</td>
-                    <td>${order[3].quantity}</td>
-                    <td>€ ${(order[3].price-(order[3].price*0.21)).toFixed(2)}</td>
-                    <td>€ ${(order[3].price*0.21).toFixed(2)}</td>
-                    <td>€ ${order[3].price.toFixed(2)}</td>
-                    <td>€ ${order[3].price.toFixed(2)*order[3].quantity}</td>
+                  <td>${order[3].name}</td>
+                  <td>${order[3].quantity}</td>
+                  <td>€ ${(order[3].price / 1.21).toFixed(2)}</td>
+                  <td>€ ${(order[3].price - order[3].price / 1.21).toFixed(
+                    2
+                  )}</td>
+                  <td>€ ${order[3].price.toFixed(2)}</td>
+                  <td>€ ${order[3].price.toFixed(2) * order[3].quantity}</td>
                 </tr>
                 <tr class="item">
                    <td>Piegade</td>
                    <td>1</td>
-                   <td>€ ${(orderShippingAmount/1.21).toFixed(2)}</td>
-                   <td>€ ${(orderShippingAmount-orderShippingAmount/1.21).toFixed(2)}</td>
+                   <td>€ ${(orderShippingAmount / 1.21).toFixed(2)}</td>
+                   <td>€ ${(
+                     orderShippingAmount -
+                     orderShippingAmount / 1.21
+                   ).toFixed(2)}</td>
                    <td>€ ${orderShippingAmount.toFixed(2)}</td>
                 </tr>
                 <br />
                 <br />
              
                 <tr class="total">
-                   <td><strong>Kopā bez PVN: € ${(Number(total)/1.21).toFixed(2)}</strong></td>
+                   <td><strong>Kopā bez PVN: € ${(Number(total) / 1.21).toFixed(
+                     2
+                   )}</strong></td>
                 </tr>
                 <tr class="total">
-                   <td><strong>PVN 21%(LV): € ${(Number(total)-(Number(total)/1.21)).toFixed(2)}</strong></td>
+                   <td><strong>PVN 21%(LV): € ${(
+                     Number(total) -
+                     Number(total) / 1.21
+                   ).toFixed(2)}</strong></td>
                 </tr>
                 <tr class="total">
                    <td><strong>Kopā:  € ${Number(total)}</strong></td>
