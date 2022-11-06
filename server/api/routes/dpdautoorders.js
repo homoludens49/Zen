@@ -75,22 +75,22 @@ router.post("/dpdAutoOrders", (req, res, next) => {
   };
 
   //login to jinn
-  jinnAuth = {
-    email: "sakov.p@gmail.com",
-    password: "ZajacAlilo123456",
-  };
+  // jinnAuth = {
+  //   email: "sakov.p@gmail.com",
+  //   password: "ZajacAlilo123456",
+  // };
   const authres = async (req, res) => {
-    const authres = await axios
-      .post("https://app.meetjinn.com/api/2021-08/auth", jinnAuth)
-      .catch((err) => {
-        console.log(err);
-      });
+    // const authres = await axios
+    //   .post("https://app.meetjinn.com/api/2021-08/auth", jinnAuth)
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
-    const token = authres.data.id_token;
+    const token = 'Token ZSJjdWxTx0+CJd2vwhZnUQ==';
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: token
       },
     };
 
@@ -108,7 +108,36 @@ router.post("/dpdAutoOrders", (req, res, next) => {
   };
   // run jinn
 
-  authres(jinnAuth, sendToJinn);
+ // authres(jinnAuth, sendToJinn);
+  authres(sendToJinn);
+
+
+
+
+
+
+  const getjinn = async (req, res) => {
+    const token = 'Token ZSJjdWxTx0+CJd2vwhZnUQ==';
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token
+      },
+    };
+    const jinnproducts = await axios
+      .get(
+        "https://app.meetjinn.com/api/2022-02/4959CT7010108/products/get",
+        config
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+    return console.log(jinnproducts);
+  };
+
+
+
+
 
   // //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
   // const items = req.body.line_items

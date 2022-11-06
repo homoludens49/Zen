@@ -32,7 +32,7 @@ router.get("/stats", (req, res) => {
           order.orderDate.getFullYear() === new Date().getFullYear()
       );
 
-      //console.log(thisMonthOrders.length)
+      console.log(thisMonthOrders)
       //sum all order.total
       const sumOrders = (orders) => {
         let sum = 0;
@@ -77,7 +77,7 @@ router.get("/stats", (req, res) => {
           // paypal transaction fee is 3.8% , maksekeskus transaction fee is 2% + 0.15 fixed fee per transaction
           // makecommerce transaction fee is 0.15 fixed fee per transaction
           if (orders[i].paymentMethod === "makecommerce") {
-            makecommerceFee += 0.15 + orders[i].total * 0.02;
+            makecommerceFee += 0.10 + orders[i].total * 0.013;
           } else if (orders[i].paymentMethod === "paypal") {
             paypalFee += orders[i].total * 0.038;
           }

@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
 router.post("/autoOrders", (req, res, next) => {
   //This part adds an Order from API that are fetched every 15 min
 
+  console.log(req.body)
   const autoOrder = new AutoOrder({
     _id: new mongoose.Types.ObjectId(),
     orderId: req.body.id,
@@ -34,6 +35,7 @@ router.post("/autoOrders", (req, res, next) => {
     _parcel_machine: req.body.meta_data[2].value,
     link: req.body._links,
   });
+
   autoOrder.save();
   //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
   const items = req.body.line_items;

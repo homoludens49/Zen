@@ -4,9 +4,10 @@ const AutoOrder = require("../api/models/autoOrder");
 const orderApi = () => {
   axios
     .get(
-      "https://smartmom.shop/wp-json/wc/v2/orders?per_page=70&consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a"
+      "https://smartmom.shop/wp-json/wc/v2/orders?per_page=95&consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a"
     )
     .then((response) => {
+      //console.log(response.data[0])
       checkOrders(response.data);
     })
     .catch((error) => {
@@ -16,7 +17,7 @@ const orderApi = () => {
 const orderApiAlilo = () => {
   axios
     .get(
-      "https://alilo.lv/wp-json/wc/v2/orders?per_page=70&consumer_key=ck_3ffb4a3f3bf0b0b87da2245b8f40465c6066bef7&consumer_secret=cs_ec6260b78cd9a9e1dad3c05bc4fda1d7c0ffaa85"
+      "https://alilo.lv/wp-json/wc/v2/orders?per_page=95&consumer_key=ck_3ffb4a3f3bf0b0b87da2245b8f40465c6066bef7&consumer_secret=cs_ec6260b78cd9a9e1dad3c05bc4fda1d7c0ffaa85"
     )
     .then((response) => {
       checkOrders(response.data);
@@ -25,7 +26,6 @@ const orderApiAlilo = () => {
       console.log(error);
     });
 };
-
 
 // This function parse API Data, Check if order is new or not, and if NEW , fire post request to Order and Product databases.
 checkOrders = async (orders) => {
@@ -39,6 +39,7 @@ checkOrders = async (orders) => {
   }
   for (i = 0; i < forDpd.length; i++) {
     const item = await AutoOrder.findOne({ orderId: forDpd[i].id });
+   
     !item ? newDpdOrders.push(forDpd[i]) : null;
   }
 
@@ -58,13 +59,16 @@ checkOrders = async (orders) => {
   var arr = [];
   var newOrders = [];
   for (i = 0; i < orders.length; i++) {
+    //console.log(`order ${orders[i].id} is being processed.`);
     orders[i].status === "processing" &&
     orders[i].shipping_lines[0].method_id === "parcelmachine_omniva"
       ? arr.push(orders[i])
       : null;
   }
+ 
   for (i = 0; i < arr.length; i++) {
     const item = await AutoOrder.findOne({ orderId: arr[i].id });
+    
     !item ? newOrders.push(arr[i]) : null;
   }
 
@@ -76,14 +80,14 @@ checkOrders = async (orders) => {
         "http://localhost:1337/autoorders/autoOrders",
         newOrders[i]
       );
-      return res;
+      return res 
     }
   } else {
     console.log("there is no new orders");
   }
 };
 
-module.exports = setInterval(orderApi, 40000);
+module.exports = setInterval(orderApi, 50000);
 module.exports = setInterval(orderApiAlilo, 50000);
 
 // module.exports = setInterval(orderApi, 3600000)
