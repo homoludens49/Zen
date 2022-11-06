@@ -43,7 +43,7 @@ app.use("/createpdf", createPDFRoutes);
 app.get("/", (req, res) => {
   console.log("bash message");
   res.json({
-    message: "server is up up up , client message",
+    message: "server is up up up , client message. This should be the new begining",
   });
 });
 
