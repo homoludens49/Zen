@@ -1,8 +1,11 @@
 const express = require("express");
+const axios = require("axios");
 const router = express.Router();
 const mongoose = require("mongoose");
 const AutoOrder = require("../models/autoOrder");
 const Product = require("../models/product");
+const puppeteerCreatePdf = require('../../functions/createPDF')
+const nodemailer  = require('nodemailer')
 
 router.get("/", (req, res) => {
   AutoOrder.find({}).then((orders) => {
@@ -12,6 +15,59 @@ router.get("/", (req, res) => {
 
 
 router.post("/autoOrders", (req, res, next) => {
+
+  const data = req.body
+  puppeteerCreatePdf(data);
+
+const updateOrderStatus = async (id) => {
+    await axios.put(
+      `https://smartmom.shop/wp-json/wc/v3/orders/${id}?consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a`,
+      {status: "completed"}
+    )
+  } 
+
+ updateOrderStatus (data.id)
+
+
+ const sendEmail = (information) => {
+
+    let transporter = nodemailer.createTransport({
+      host: 'smartmom.shop',
+      port: '465',
+      auth: {
+          user: 'info@smartmom.shop',
+          pass: 'Log9821204'
+      },
+      tls: {
+          rejectUnauthorized: false
+      }
+    })
+    
+    let mailoptions = {
+        from: 'info@smartmom.shop',
+        to: `sakov.p@gmail.com`,
+        subject: `Elektroniska pavadzime pasutijumam ${information.id} no Smartmom.shop`,
+        text: 'Labdien, \nPaldies ka pasūtījāt no Smartmom.shop! Jūsu pirkums tiks piegadāts 2 - 4 darba dienu laikā. Pielikumā ir elektroniskā pavadzīme. \nAr cieņu, Jūsu Smartmom.shop',
+        attachments: [
+            {   
+                path: `E:/CodeProjects/Zen/server/files/${information.id}.pdf`
+            },
+        ]
+    }
+
+    transporter.sendMail(mailoptions,function (err, info){
+        if(err){
+            console.log('Error: ', err)
+        }else {
+            console.log('Message sent!!!')
+        }
+    })
+
+}
+
+
+sendEmail(data)
+
   //This part adds an Order from API that are fetched every 15 min
   const autoOrder = new AutoOrder({
     _id: new mongoose.Types.ObjectId(),
@@ -33,8 +89,13 @@ router.post("/autoOrders", (req, res, next) => {
     _parcel_machine: req.body.meta_data[2].value,
     link: req.body._links,
   });
+    
+ autoOrder.save();
+  
 
-  autoOrder.save();
+ 
+
+
   //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
   const items = req.body.line_items;
   for (i = 0; i < items.length; i++) {
@@ -50,7 +111,7 @@ router.post("/autoOrders", (req, res, next) => {
       const item1color = items[i].meta_data[1].value;
       const item2color = items[i].meta_data[2].value;
       const item2lang = items[i].meta_data[3].value;
-      console.log(item1lang, item1color, item2color, item2lang);
+     // console.log(item1lang, item1color, item2color, item2lang);
       const itemsInKompl = [];
       item1lang === "RU" && item1color === "Голубой"
         ? itemsInKompl.push("6954644609058")

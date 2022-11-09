@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Products from "../Products";
 import Totals from "../Totals";
-import Stats from "../Stats";
+import Stats from "../statistics/Stats";
 import FileUpload from "../FileUpload";
 import stock from "../../reducers/stock";
 import { getTotals } from "../../actions/stock";
