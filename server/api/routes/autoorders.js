@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const AutoOrder = require("../models/autoOrder");
 const Product = require("../models/product");
 const puppeteerCreatePdf = require('../../functions/createPDF')
+const createXML = require('../../functions/createXML')
 const nodemailer  = require('nodemailer')
 
 router.get("/", (req, res) => {
@@ -18,6 +19,7 @@ router.post("/autoOrders", (req, res, next) => {
 
   const data = req.body
   puppeteerCreatePdf(data);
+  createXML(data)
 
 const updateOrderStatus = async (id) => {
     await axios.put(
@@ -26,7 +28,7 @@ const updateOrderStatus = async (id) => {
     )
   } 
 
- updateOrderStatus (data.id)
+ //updateOrderStatus (data.id)
 
 
  const sendEmail = (information) => {
@@ -66,7 +68,7 @@ const updateOrderStatus = async (id) => {
 }
 
 
-sendEmail(data)
+//sendEmail(data)
 
   //This part adds an Order from API that are fetched every 15 min
   const autoOrder = new AutoOrder({
@@ -90,7 +92,7 @@ sendEmail(data)
     link: req.body._links,
   });
     
- autoOrder.save();
+ //autoOrder.save();
   
 
  
