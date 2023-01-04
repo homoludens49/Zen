@@ -14,21 +14,27 @@ const createXML = async (data) => {
 
   const id = data.id.toString();
   const poissueddate = new Date();
-  const name1 = "Smartmom SIA";
+  const name1 = data.shipping.first_name && data.shipping.last_name;
+  const name2 = data.shipping.phone;
   const address1 = data.shipping.address_1;
-  const address2 =
-    data.shipping.first_name && data.shipping.last_name && data.shipping.phone;
+  const address2 = data.shipping.first_name 
   const city = data.shipping.city;
   const postalcode = data.shipping.postcode;
   const country = data.shipping.country;
   const email = data.billing.email;
   const phone = data.shipping.phone;
 
+
+  const alsoRouteCode = 0
+  if (country ="LV"){
+    return alsoRouteCode = 2
+  }
+
   let template = `<?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
   <OrderHeader>
     <POIssuedDate>${poissueddate}</POIssuedDate>
-    <PreferredShippingDate>${poissueddate + 1}</PreferredShippingDate>
+    <PreferredShippingDate>${poissueddate}</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
       <BuyerOrderNumber>4000098926</BuyerOrderNumber>
@@ -45,7 +51,7 @@ const createXML = async (data) => {
       </BuyerParty>
       <SupplierParty>
         <Party>
-          <ID>{ALSO_ROUTE_CODE}</ID>
+          <ID>${alsoRouteCode}</ID>
         </Party>
       </SupplierParty>
       <DeliveryParty>
@@ -53,10 +59,11 @@ const createXML = async (data) => {
           <ID>${id}</ID>
           <NameAddress>
             <Name1>${name1}</Name1>
+            <Name2>${name2}</Name2>
             <Address1>${address1}</Address1>
             <Address2>${address2}</Address2>
             <City>${city}</City>
-            <PostalCode>${postalcode}</PostalCode>
+            <PostalCode>1000</PostalCode>
             <Country>${country}</Country>
 	        <EMail>${email}</Email>
             <Contact>
