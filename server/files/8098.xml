@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
   <OrderHeader>
-    <POIssuedDate>Mon Jan 02 2023 18:04:23 GMT+0200 (Eastern European Standard Time)</POIssuedDate>
-    <PreferredShippingDate>Mon Jan 02 2023 18:04:23 GMT+0200 (Eastern European Standard Time)</PreferredShippingDate>
+    <POIssuedDate>Mon Jan 02 2023 18:01:52 GMT+0200 (Eastern European Standard Time)</POIssuedDate>
+    <PreferredShippingDate>Mon Jan 02 2023 18:01:52 GMT+0200 (Eastern European Standard Time)</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
       <BuyerOrderNumber>4000098926</BuyerOrderNumber>
@@ -24,7 +24,7 @@
       </SupplierParty>
       <DeliveryParty>
         <Party>
-          <ID>8094</ID>
+          <ID>8098</ID>
           <NameAddress>
             <Name1>CUSTOMER NAME, SIA</Name1>
             <Address1>Brivibas 888-22</Address1>

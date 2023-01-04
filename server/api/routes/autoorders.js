@@ -68,7 +68,7 @@ const updateOrderStatus = async (id) => {
 }
 
 
-//sendEmail(data)
+sendEmail(data)
 
   //This part adds an Order from API that are fetched every 15 min
   const autoOrder = new AutoOrder({

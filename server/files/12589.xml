@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
   <OrderHeader>
-    <POIssuedDate>Mon Jan 02 2023 18:04:23 GMT+0200 (Eastern European Standard Time)</POIssuedDate>
-    <PreferredShippingDate>Mon Jan 02 2023 18:04:23 GMT+0200 (Eastern European Standard Time)</PreferredShippingDate>
+    <POIssuedDate>Mon Jan 02 2023 20:40:50 GMT+0200 (Eastern European Standard Time)</POIssuedDate>
+    <PreferredShippingDate>Mon Jan 02 2023 20:40:50 GMT+0200 (Eastern European Standard Time)1</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
       <BuyerOrderNumber>4000098926</BuyerOrderNumber>
@@ -14,7 +14,7 @@
     <OrderParties>
       <BuyerParty>
         <Party>
-          <ID>{CLIENT_ID}</ID>
+          <ID>11269801</ID>
         </Party>
       </BuyerParty>
       <SupplierParty>
@@ -24,24 +24,24 @@
       </SupplierParty>
       <DeliveryParty>
         <Party>
-          <ID>8094</ID>
+          <ID>12589</ID>
           <NameAddress>
-            <Name1>CUSTOMER NAME, SIA</Name1>
-            <Address1>Brivibas 888-22</Address1>
-            <Address2>Juris Cirulis +37122233344</Address2>
-            <City>Riga</City>
-            <PostalCode>1099</PostalCode>
+            <Name1>Smartmom SIA</Name1>
+            <Address1>Ventspils Tārgales ielas Mini RIMI pakomāts</Address1>
+            <Address2>+37125410262</Address2>
+            <City>Ventspils</City>
+            <PostalCode>9957</PostalCode>
             <Country>LV</Country>
-	        <EMail>email@mail.com</Email>
+	        <EMail>test@gmail.com</Email>
             <Contact>
-            	<Phone>+37122233344</Phone>
+            	<Phone>+37125410262</Phone>
             </Contact>
           </NameAddress>
         </Party>
       </DeliveryParty>
       <EndUserParty>
         <Party>
-          <Reference>2000098926</Reference>
+          <Reference>12589</Reference>
           <NameAddress>
             <Name1>Example Bank, A/S</Name1>
             <Address2>Liliju 29</Address2>
