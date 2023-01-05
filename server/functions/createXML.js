@@ -1,34 +1,81 @@
 const xml2js = require("xml2js");
 const fs = require("fs");
-
-let data = {
-  order: [
-    {
-      Name: "Ronaldo",
-    },
-  ],
-};
+const axios = require("axios");
 
 const createXML = async (data) => {
-  console.log(data);
+  let url = `https://b2b.alsolatvia.lv/DirectXML.svc/GetXMLDomainName/2/11269801`;
+  let result = await axios.get(url, {
+    timeout: 4000,
+    responseType: "text",
+    maxContentLength: 65536,
+  });
+  let response = result.data;
+  let urlForXmlRequests = `https://${response}/scripts/XML_Interface.dll`;
 
-  const id = data.id.toString();
-  const poissueddate = new Date();
-  const name1 = data.shipping.first_name && data.shipping.last_name;
-  const name2 = data.shipping.phone;
-  const address1 = data.shipping.address_1;
-  const address2 = data.shipping.first_name 
-  const city = data.shipping.city;
-  const postalcode = data.shipping.postcode;
-  const country = data.shipping.country;
-  const email = data.billing.email;
-  const phone = data.shipping.phone;
+  let catalogueTemplate = `<?xml version="1.0" encoding="UTF-8"?>
+  <CatalogRequest>
+    <Route>
+      <From>
+      <ClientID>11269801</ClientID>
+      </From>
+      <To>
+        <ClientID>2</ClientID>
+      </To>
+    </Route>
+    <Filters>
+      <Filter FilterID="StockLevel" Value="OnStock" />
+      <Filter FilterID="Price" Value="WOVAT" />
+    </Filters>
+  </CatalogRequest>`;
 
+  encodeURIComponent(catalogueTemplate);
 
-  const alsoRouteCode = 0
-  if (country ="LV"){
-    return alsoRouteCode = 2
-  }
+  let catalogueRequestUrl = `${urlForXmlRequests}?USERNAME=xmlSmart01User&PASSWORD=Sm4rTusr80xMl!&$XML="${encodeURIComponent(
+    catalogueTemplate
+  )}`;
+
+  console.log(catalogueRequestUrl);
+
+  let catalogueResult = await axios.get(catalogueRequestUrl, {
+    timeout: 4000,
+    responseType: "text",
+    maxContentLength: 65536,
+  });
+  let catalogueResponse = catalogueResult.data;
+  console.log(catalogueResponse);
+
+  let id = data.id.toString();
+  let date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  // This arrangement can be altered based on how we want the date's format to appear.
+  let poissueddate = `${year}-${month}-${day}`;
+
+  let name1 = `${data.shipping.first_name} ${data.shipping.last_name}`;
+  let name2 = data.shipping.phone;
+  let address1 = data.shipping.postcode;
+  let address2 = `${data.shipping.address_1}, ${data.shipping.address_2}`;
+
+  let city = data.shipping.city;
+
+  let country = data.shipping.country;
+  let email = data.billing.email;
+  let phone = data.shipping.phone;
+
+  let alsoRouteCode = 2;
+
+  const item = data.line_items.map(
+    (i) => `<OrderLine Type="P">
+    <LineNumber>1</LineNumber>
+    <ProductID>${i.sku}</ProductID>
+    <Quantity>
+      <QtyRequested>${i.quantity}</QtyRequested>
+    </Quantity>
+    <WareHouseID>1</WareHouseID>
+  </OrderLine>`
+  );
 
   let template = `<?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
@@ -37,7 +84,7 @@ const createXML = async (data) => {
     <PreferredShippingDate>${poissueddate}</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
-      <BuyerOrderNumber>4000098926</BuyerOrderNumber>
+      <BuyerOrderNumber>${id}</BuyerOrderNumber>
     </OrderNumber>
     <Transport>
       <Carrier>OI</Carrier>
@@ -65,60 +112,24 @@ const createXML = async (data) => {
             <City>${city}</City>
             <PostalCode>1000</PostalCode>
             <Country>${country}</Country>
-	        <EMail>${email}</Email>
-            <Contact>
-            	<Phone>${phone}</Phone>
-            </Contact>
           </NameAddress>
         </Party>
       </DeliveryParty>
-      <EndUserParty>
-        <Party>
-          <Reference>${id}</Reference>
-          <NameAddress>
-            <Name1>Example Bank, A/S</Name1>
-            <Address2>Liliju 29</Address2>
-            <City>Marupe</City>
-            <PostalCode>1299</PostalCode>
-            <Country>LV</Country>
-          </NameAddress>
-          <Contact>
-            <Name>Janis Berzins</Name>
-            <Phone>+37144433322</Phone>
-            <EMail>janis.berzins@example.lv</EMail>
-          </Contact>
-        </Party>
-      </EndUserParty>
     </OrderParties>
   </OrderHeader>
   <ListofOrderDetails>
-    <OrderLine Type="P">
-      <LineNumber>1</LineNumber>
-      <ProductID>2088349</ProductID>
-      <PartNumber>S26381-K511-L402</PartNumber>
-      <Quantity>
-        <QtyRequested>20</QtyRequested>
-      </Quantity>
-      <WareHouseID>1</WareHouseID>
-      <BIDNumber>90597874-036</BIDNumber>
-      <BIDName>SOME COMPANY, INC.</BIDName>
-    </OrderLine>
+    ${item}
   </ListofOrderDetails>
   <OrderSummary>
-    <Note>4000098926</Note>
-    <ResellerNote>4000098926</ResellerNote>
+    <Note>${id}</Note>
+    <ResellerNote>${id}</ResellerNote>
   </OrderSummary>
 </PurchaseOrder>`;
 
-  const builder = new xml2js.Builder();
-  const xml = builder.buildObject(template);
-
-  fs.writeFile(`files/${id}.xml`, template, function (err) {
+  await fs.writeFile(`files/${id}.xml`, template, function (err) {
     if (err) throw err;
     console.log("Saved!");
   });
 };
-
-console.log(createXML);
 
 module.exports = createXML;

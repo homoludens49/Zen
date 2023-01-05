@@ -81,6 +81,6 @@ checkOrders = async (orders) => {
 };
 
 module.exports = setInterval(orderApi, 40000);
-module.exports = setInterval(orderApiAlilo, 50000);
+module.exports = setInterval(orderApiAlilo, 5000000);
 
 // module.exports = setInterval(orderApi, 3600000)

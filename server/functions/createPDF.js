@@ -1,23 +1,22 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require("puppeteer");
 
-  const  puppeteerCreatePdf = async (data) => {
-        const browser = await puppeteer.launch({ headless: true });
-        const page = await browser.newPage();
-        const today = new Date();
-       
-        const item = data.line_items.map(i=>
-          (`<tr key=${i.id}>
+const puppeteerCreatePdf = async (data) => {
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+  const today = new Date();
+
+  const item = data.line_items.map(
+    (i) => `<tr key=${i.id}>
              <td>${i.name}</td>
              <td>${i.quantity}</td>
-             <td>${(i.price/1.21).toFixed(2)}</td>
-             <td>${(i.price-(i.price/1.21)).toFixed(2)}</td>
+             <td>${(i.price / 1.21).toFixed(2)}</td>
+             <td>${(i.price - i.price / 1.21).toFixed(2)}</td>
              <td>${i.price}</td>
-              <td>${(i.price*i.quantity).toFixed(2)}</td>
+              <td>${(i.price * i.quantity).toFixed(2)}</td>
           </tr>`
-          ))
-        await page.setContent(
-
-      `<html>
+  );
+  await page.setContent(
+    `<html>
        <head>
           <meta charset="utf-8">
           <title>PDF Result Template</title>
@@ -145,7 +144,9 @@ const puppeteer = require('puppeteer')
                          </tr>
                          <tr> 
                        <td class="title2">
-                         Pasutijuma Datums: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                         Pasutijuma Datums: ${`${today.getDate()}. ${
+                           today.getMonth() + 1
+                         }. ${today.getFullYear()}.`}
                        </td>
                        </tr>
                       </table>
@@ -166,10 +167,18 @@ const puppeteer = require('puppeteer')
                         </tr>
                          <tr>
                             <td>
-                              Preču saņēmējs:   <strong>${data.billing.first_name} ${data.billing.last_name}</strong><br/>			
-                              Piegādes adrese:  <strong>${data.shipping.address_1}</strong> <br/>		
-                              Tālr.: <strong>${data.shipping.phone} </strong><br/>
-                              E-pasts: <strong>${data.billing.email} </strong><br/> 
+                              Preču saņēmējs:   <strong>${
+                                data.billing.first_name
+                              } ${data.billing.last_name}</strong><br/>			
+                              Piegādes adrese:  <strong>${
+                                data.shipping.address_1
+                              }</strong> <br/>		
+                              Tālr.: <strong>${
+                                data.shipping.phone
+                              } </strong><br/>
+                              E-pasts: <strong>${
+                                data.billing.email
+                              } </strong><br/> 
                             </td>
                          </tr>
                       </table>
@@ -187,18 +196,28 @@ const puppeteer = require('puppeteer')
                 <tr class="item">
                    <td>Piegade</td>
                    <td>1</td>
-                   <td>€ ${(data.shipping_lines[0].total/1.21).toFixed(2)}</td>
-                   <td>€ ${(data.shipping_lines[0].total-data.shipping_lines[0].total/1.21).toFixed(2)}</td>
+                   <td>€ ${(data.shipping_lines[0].total / 1.21).toFixed(
+                     2
+                   )}</td>
+                   <td>€ ${(
+                     data.shipping_lines[0].total -
+                     data.shipping_lines[0].total / 1.21
+                   ).toFixed(2)}</td>
                    <td>€ ${data.shipping_lines[0].total}</td>
                 </tr>
                 <br />
                 <br />
              
                 <tr class="total">
-                   <td><strong>Kopā bez PVN: € ${(Number(data.total)/1.21).toFixed(2)}</strong></td>
+                   <td><strong>Kopā bez PVN: € ${(
+                     Number(data.total) / 1.21
+                   ).toFixed(2)}</strong></td>
                 </tr>
                 <tr class="total">
-                   <td><strong>PVN 21%(LV): € ${(Number(data.total)-(Number(data.total)/1.21)).toFixed(2)}</strong></td>
+                   <td><strong>PVN 21%(LV): € ${(
+                     Number(data.total) -
+                     Number(data.total) / 1.21
+                   ).toFixed(2)}</strong></td>
                 </tr>
                 <tr class="total">
                    <td><strong>Kopā:  € ${Number(data.total)}</strong></td>
@@ -212,19 +231,16 @@ const puppeteer = require('puppeteer')
           </div>
        </body>
     </html>`
+  );
 
-          )
+  await page.pdf({
+    path: `files/${data.id}.pdf`,
+    format: "A4",
+    printBackground: true,
+  });
+  await console.log(`Creating PDF for ${data.id}`);
 
-        await page.pdf({
-          path: `files/${data.id}.pdf`,
-          format: 'A4',
-          printBackground:true
-        })
-         await console.log(`Creating PDF for ${data.id}`)
+  await browser.close();
+};
 
-         await browser.close()
-
-       
-  }
-
-  module.exports = puppeteerCreatePdf
+module.exports = puppeteerCreatePdf;
