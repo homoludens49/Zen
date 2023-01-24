@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-1-18</POIssuedDate>
+    <PreferredShippingDate>2023-1-18</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>12632</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>12632</ID>
+          <NameAddress>
+            <Name1>Diana Lukashenok</Name1>
+            <Name2>26856277</Name2>
+            <Address1>9576</Address1>
+            <Address2>Rīgas Ropažu ielas 63 pakomāts, Ropažu iela 63</Address2>
+            <City>Rīga</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334976</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>,<OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334961</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>12632</Note>
+    <ResellerNote>12632</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

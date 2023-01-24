@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
   <OrderHeader>
-    <POIssuedDate>2023-1-4</POIssuedDate>
-    <PreferredShippingDate>2023-1-4</PreferredShippingDate>
+    <POIssuedDate>2023-1-23</POIssuedDate>
+    <PreferredShippingDate>2023-1-23</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
-      <BuyerOrderNumber>8112</BuyerOrderNumber>
+      <BuyerOrderNumber>8148</BuyerOrderNumber>
     </OrderNumber>
     <Transport>
       <Carrier>OI</Carrier>
@@ -24,13 +24,13 @@
       </SupplierParty>
       <DeliveryParty>
         <Party>
-          <ID>8112</ID>
+          <ID>8148</ID>
           <NameAddress>
-            <Name1>Elizabete Ketnere-Vaseiko</Name1>
-            <Name2></Name2>
-            <Address1>9917</Address1>
-            <Address2>Liepājas T/C Baata pakomāts, Klaipēdas iela 104C</Address2>
-            <City>Liepāja</City>
+            <Name1>Olga Kozinova</Name1>
+            <Name2>28484244</Name2>
+            <Address1>9920</Address1>
+            <Address2>Jūrmalas Kauguru RIMI pakomāts, Talsu šoseja 29</Address2>
+            <City>Jūrmala</City>
             <PostalCode>1000</PostalCode>
             <Country>LV</Country>
           </NameAddress>
@@ -40,16 +40,16 @@
   </OrderHeader>
   <ListofOrderDetails>
     <OrderLine Type="P">
-    <LineNumber>1</LineNumber>
-    <ProductID>6954644609072</ProductID>
-    <Quantity>
-      <QtyRequested>1</QtyRequested>
-    </Quantity>
-    <WareHouseID>1</WareHouseID>
-  </OrderLine>
+      <LineNumber>1</LineNumber>
+      <ProductID>0</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
   </ListofOrderDetails>
   <OrderSummary>
-    <Note>8112</Note>
-    <ResellerNote>8112</ResellerNote>
+    <Note>8148</Note>
+    <ResellerNote>8148</ResellerNote>
   </OrderSummary>
 </PurchaseOrder>

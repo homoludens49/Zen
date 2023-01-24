@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PurchaseOrder>
   <OrderHeader>
-    <POIssuedDate>2023-1-4</POIssuedDate>
-    <PreferredShippingDate>2023-1-4</PreferredShippingDate>
+    <POIssuedDate>2023-1-23</POIssuedDate>
+    <PreferredShippingDate>2023-1-23</PreferredShippingDate>
     <PartialShipmentAllowed>1</PartialShipmentAllowed>
     <OrderNumber>
-      <BuyerOrderNumber>12592</BuyerOrderNumber>
+      <BuyerOrderNumber>12645</BuyerOrderNumber>
     </OrderNumber>
     <Transport>
       <Carrier>OI</Carrier>
@@ -24,12 +24,12 @@
       </SupplierParty>
       <DeliveryParty>
         <Party>
-          <ID>12592</ID>
+          <ID>12645</ID>
           <NameAddress>
-            <Name1>Agnese Antonova</Name1>
-            <Name2>20094529</Name2>
-            <Address1>9961</Address1>
-            <Address2>Rīgas Ziepniekkalna MEGO pakomāts, Dižozolu iela 2</Address2>
+            <Name1>Test Sakovs</Name1>
+            <Name2>+37125410262</Name2>
+            <Address1>9111</Address1>
+            <Address2>Rīgas A.Briāna ielas RIMI pakomāts, Krišjāņa Valdemāra iela 62A</Address2>
             <City>Rīga</City>
             <PostalCode>1000</PostalCode>
             <Country>LV</Country>
@@ -40,16 +40,23 @@
   </OrderHeader>
   <ListofOrderDetails>
     <OrderLine Type="P">
-    <LineNumber>1</LineNumber>
-    <ProductID>0703625108730</ProductID>
-    <Quantity>
-      <QtyRequested>1</QtyRequested>
-    </Quantity>
-    <WareHouseID>1</WareHouseID>
-  </OrderLine>
+      <LineNumber>1</LineNumber>
+      <ProductID>10334939</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>,<OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>0</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
   </ListofOrderDetails>
   <OrderSummary>
-    <Note>12592</Note>
-    <ResellerNote>12592</ResellerNote>
+    <Note>12645</Note>
+    <ResellerNote>12645</ResellerNote>
   </OrderSummary>
 </PurchaseOrder>

@@ -32,7 +32,7 @@ router.get("/stats", (req, res) => {
           order.orderDate.getFullYear() === new Date().getFullYear()
       );
 
-      console.log(thisMonthOrders)
+      //console.log(thisMonthOrders)
       //sum all order.total
       const sumOrders = (orders) => {
         let sum = 0;

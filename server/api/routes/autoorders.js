@@ -16,25 +16,46 @@ router.get("/", (req, res) => {
 
 router.post("/autoOrders", (req, res, next) => {
   const data = req.body;
-  //puppeteerCreatePdf(data);
+
+  let wait = (time) =>{
+    setTimeout(console.log(`${time} ms waited`), time)
+  }
+
+  puppeteerCreatePdf(data);
   createXML(data);
 
-  const updateOrderStatus = async (id) => {
+  //wait(1000)
+ 
+
+
+  const updateSmartmomOrderStatus = async (id) => {
     await axios.put(
-      `https://smartmom.shop/wp-json/wc/v3/orders/${id}?consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a`,
+      `https://smartmom.shop/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`,
+      { status: "completed" }
+    );
+  };
+  const updateAliloOrderStatus = async (id) => {
+    await axios.put(
+      `https://alilo.lv/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`,
       { status: "completed" }
     );
   };
 
-  //updateOrderStatus (data.id)
+  if(data.payment_url.includes('alilo')){
+    updateAliloOrderStatus(data.id)
+  }else{
+    updateSmartmomOrderStatus(data.id)
+  }
+
+ 
 
   const sendEmail = (information) => {
     let transporter = nodemailer.createTransport({
       host: "smartmom.shop",
       port: "465",
       auth: {
-        user: "info@smartmom.shop",
-        pass: "Log9821204",
+        user: process.env.IM,
+        pass: process.env.IMP,
       },
       tls: {
         rejectUnauthorized: false,
@@ -42,13 +63,14 @@ router.post("/autoOrders", (req, res, next) => {
     });
 
     let mailoptions = {
-      from: "info@smartmom.shop",
-      to: `sakov.p@gmail.com`,
+      from: process.env.IM,
+      to: information.shipping.email,
+      bcc: process.env.MM,
       subject: `Elektroniska pavadzime pasutijumam ${information.id} no Smartmom.shop`,
       text: "Labdien, \nPaldies ka pasūtījāt no Smartmom.shop! Jūsu pirkums tiks piegadāts 2 - 4 darba dienu laikā. Pielikumā ir elektroniskā pavadzīme. \nAr cieņu, Jūsu Smartmom.shop",
       attachments: [
         {
-          path: `D:/Code Projects/2020/Zen/server/files/${information.id}.pdf`,
+          path: `E:/CodeProjects/Zen/server/files/${information.id}.pdf`,
         },
       ],
     };
@@ -62,7 +84,7 @@ router.post("/autoOrders", (req, res, next) => {
     });
   };
 
-  //sendEmail(data);
+sendEmail(data)
 
   //This part adds an Order from API that are fetched every 15 min
   const autoOrder = new AutoOrder({
@@ -86,7 +108,7 @@ router.post("/autoOrders", (req, res, next) => {
     link: req.body._links,
   });
 
-  //autoOrder.save();
+  autoOrder.save();
 
   //This part of code deduct item quantity from order in Product database. It deducts from "Omniva Warehouse" because all products are stored there
   const items = req.body.line_items;

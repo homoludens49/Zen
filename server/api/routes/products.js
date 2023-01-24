@@ -16,7 +16,7 @@ router.get('/', (req,res)=>{
 })
 
 router.post('/', (req,res,next)=>{
-    console.log(req.body)
+    //console.log(req.body)
     const product = new Product({
         _id: new mongoose.Types.ObjectId(),
         productId: req.body.productId,
@@ -43,7 +43,7 @@ router.post('/', (req,res,next)=>{
 });
 //
 router.patch('/:sku', (req,res,next)=>{
-    console.log(req.body)
+    //console.log(req.body)
     const sku = req.body.sku; //set sku from body as target to update
     Product.update({ sku: sku}, {$set: req.body})
     .exec()

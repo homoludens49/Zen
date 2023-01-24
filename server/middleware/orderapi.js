@@ -4,9 +4,10 @@ const AutoOrder = require("../api/models/autoOrder");
 const orderApi = () => {
   axios
     .get(
-      "https://smartmom.shop/wp-json/wc/v2/orders?per_page=75&consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a"
+      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=10&consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`
     )
     .then((response) => {
+      
       checkOrders(response.data);
     })
     .catch((error) => {
@@ -16,7 +17,7 @@ const orderApi = () => {
 const orderApiAlilo = () => {
   axios
     .get(
-      "https://alilo.lv/wp-json/wc/v2/orders?per_page=75&consumer_key=ck_3ffb4a3f3bf0b0b87da2245b8f40465c6066bef7&consumer_secret=cs_ec6260b78cd9a9e1dad3c05bc4fda1d7c0ffaa85"
+      `https://alilo.lv/wp-json/wc/v2/orders?per_page=5&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
     )
     .then((response) => {
       checkOrders(response.data);
@@ -32,7 +33,7 @@ checkOrders = async (orders) => {
   var newDpdOrders = [];
   for (i = 0; i < orders.length; i++) {
     orders[i].status === "processing" &&
-    orders[i].shipping_lines[0].method_id === "parcelmachine_dpd"
+    orders[i].shipping_lines[0].method_id === "parcelmachine_dpd" 
       ? forDpd.push(orders[i])
       : null;
   }
@@ -58,7 +59,7 @@ checkOrders = async (orders) => {
   var newOrders = [];
   for (i = 0; i < orders.length; i++) {
     orders[i].status === "processing" &&
-    orders[i].shipping_lines[0].method_id === "parcelmachine_omniva"
+    orders[i].shipping_lines[0].method_id === "parcelmachine_omniva" || orders[i].shipping_lines[0].method_id === "courier_omniva"
       ? arr.push(orders[i])
       : null;
   }
@@ -80,7 +81,7 @@ checkOrders = async (orders) => {
   }
 };
 
-module.exports = setInterval(orderApi, 40000);
-module.exports = setInterval(orderApiAlilo, 5000000);
+module.exports = setInterval(orderApi, 25000);
+module.exports = setInterval(orderApiAlilo, 50000);
 
 // module.exports = setInterval(orderApi, 3600000)
