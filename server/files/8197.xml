@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-2-9</POIssuedDate>
+    <PreferredShippingDate>2023-2-9</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8197</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8197</ID>
+          <NameAddress>
+            <Name1>Ieva Meldere</Name1>
+            <Name2>22033345</Name2>
+            <Address1>9250</Address1>
+            <Address2>Rīgas Liepājas ielas Maxima X pakomāts, Liepājas iela 76A</Address2>
+            <City>Rīga</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <Email>ieva.meldere91@gmail.com</Email>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334939</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8197</Note>
+    <ResellerNote>8197</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

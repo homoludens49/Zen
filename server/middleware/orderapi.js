@@ -4,10 +4,10 @@ const AutoOrder = require("../api/models/autoOrder");
 const orderApi = () => {
   axios
     .get(
-      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=10&consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`
+      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=15&consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`
     )
     .then((response) => {
-      
+     
       checkOrders(response.data);
     })
     .catch((error) => {
@@ -17,9 +17,10 @@ const orderApi = () => {
 const orderApiAlilo = () => {
   axios
     .get(
-      `https://alilo.lv/wp-json/wc/v2/orders?per_page=5&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
+      `https://alilo.lv/wp-json/wc/v2/orders?per_page=15&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
     )
     .then((response) => {
+     
       checkOrders(response.data);
     })
     .catch((error) => {
@@ -57,6 +58,7 @@ checkOrders = async (orders) => {
 
   var arr = [];
   var newOrders = [];
+ 
   for (i = 0; i < orders.length; i++) {
     orders[i].status === "processing" &&
     orders[i].shipping_lines[0].method_id === "parcelmachine_omniva" || orders[i].shipping_lines[0].method_id === "courier_omniva"
@@ -81,7 +83,7 @@ checkOrders = async (orders) => {
   }
 };
 
-module.exports = setInterval(orderApi, 25000);
-module.exports = setInterval(orderApiAlilo, 50000);
+module.exports = setInterval(orderApi, 30000);
+module.exports = setInterval(orderApiAlilo, 45000);
 
 // module.exports = setInterval(orderApi, 3600000)

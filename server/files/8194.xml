@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-2-7</POIssuedDate>
+    <PreferredShippingDate>2023-2-7</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8194</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8194</ID>
+          <NameAddress>
+            <Name1>Sanita Vilgerte</Name1>
+            <Name2>29939362</Name2>
+            <Address1>9133</Address1>
+            <Address2>Ogres Rīgas ielas RIMI pakomāts, Rīgas iela 33</Address2>
+            <City>Ogres novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <Email>vilgertswood@inbox.lv</Email>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334964</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8194</Note>
+    <ResellerNote>8194</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

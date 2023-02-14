@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-2-9</POIssuedDate>
+    <PreferredShippingDate>2023-2-9</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8198</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8198</ID>
+          <NameAddress>
+            <Name1>Baiba Tisenkopfa</Name1>
+            <Name2>29170880</Name2>
+            <Address1>9275</Address1>
+            <Address2>Ulbrokas TOP pakomāts, Institūta iela 7</Address2>
+            <City>Ropažu novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <Email>baiba@primenet.lv</Email>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334938</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8198</Note>
+    <ResellerNote>8198</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

@@ -17,14 +17,10 @@ router.get("/", (req, res) => {
 router.post("/autoOrders", (req, res, next) => {
   const data = req.body;
 
-  let wait = (time) =>{
-    setTimeout(console.log(`${time} ms waited`), time)
-  }
-
   puppeteerCreatePdf(data);
   createXML(data);
 
-  //wait(1000)
+  
  
 
 
@@ -49,42 +45,7 @@ router.post("/autoOrders", (req, res, next) => {
 
  
 
-  const sendEmail = (information) => {
-    let transporter = nodemailer.createTransport({
-      host: "smartmom.shop",
-      port: "465",
-      auth: {
-        user: process.env.IM,
-        pass: process.env.IMP,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-
-    let mailoptions = {
-      from: process.env.IM,
-      to: information.shipping.email,
-      bcc: process.env.MM,
-      subject: `Elektroniska pavadzime pasutijumam ${information.id} no Smartmom.shop`,
-      text: "Labdien, \nPaldies ka pasūtījāt no Smartmom.shop! Jūsu pirkums tiks piegadāts 2 - 4 darba dienu laikā. Pielikumā ir elektroniskā pavadzīme. \nAr cieņu, Jūsu Smartmom.shop",
-      attachments: [
-        {
-          path: `E:/CodeProjects/Zen/server/files/${information.id}.pdf`,
-        },
-      ],
-    };
-
-    transporter.sendMail(mailoptions, function (err, info) {
-      if (err) {
-        console.log("Error: ", err);
-      } else {
-        console.log("Message sent!!!");
-      }
-    });
-  };
-
-sendEmail(data)
+  
 
   //This part adds an Order from API that are fetched every 15 min
   const autoOrder = new AutoOrder({

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-2-7</POIssuedDate>
+    <PreferredShippingDate>2023-2-7</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8188</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8188</ID>
+          <NameAddress>
+            <Name1>Agnese Gaša</Name1>
+            <Name2>26364310</Name2>
+            <Address1>9260</Address1>
+            <Address2>Cēsu T/C SOLO pakomāts, Jāņa Poruka iela 19</Address2>
+            <City>Cēsu novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <Email>agjiitis@inbox.lv</Email>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334938</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8188</Note>
+    <ResellerNote>8188</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>
