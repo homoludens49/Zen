@@ -22,16 +22,16 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.17",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.22",
     "puppeteer": "^5.5.0",
     "vue": "^2.6.11",
     "woocommerce-api": "^1.4.2",
     "xlsx": "^0.18.5",
     "xml": "^1.0.1",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.5.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.3"
+    "mocha": "^10.2.0"
   }
 }

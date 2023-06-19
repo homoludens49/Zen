@@ -118,6 +118,10 @@ const createXML = async (data) => {
     : sku === "LD4434" ? partnumber = "10336145" 
     : sku === "LD4469" ? partnumber = "10336144"
     : sku === "LD4482" ? partnumber = "10336143" 
+    : sku === "6954644609300" ? partnumber = "10334966" 
+    : sku === "6954644609300LV" ? partnumber = "10337945" 
+    : sku === "6954644609287LV" ? partnumber = "10337944"
+    : sku === "6954644609287" ? partnumber = "10334965" 
     : errorList.push(`Item with sku ${sku} if not specified in also list`)
 
     return partnumber
@@ -170,7 +174,7 @@ const createXML = async (data) => {
             <City>${city}</City>
             <PostalCode>1000</PostalCode>
             <Country>${country}</Country>
-            <Email>${email}</Email>
+            <EMail>${email}</EMail>
           </NameAddress>
         </Party>
       </DeliveryParty>
@@ -217,7 +221,6 @@ let url = process.env.AURL;
         }
   
       }).then(function(response) {
-        console.log(response)
         if(response.status === 200){
           let responseIdandData = {
             id: data.id,

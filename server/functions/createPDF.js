@@ -2,6 +2,8 @@ const puppeteer = require("puppeteer");
 const nodemailer = require("nodemailer");
 
 const puppeteerCreatePdf = async (data) => {
+
+ 
   const sendEmail = (information) => {
     let transporter = nodemailer.createTransport({
       host: "smartmom.shop",
