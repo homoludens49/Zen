@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-13</POIssuedDate>
+    <PreferredShippingDate>2023-10-13</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14259</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14259</ID>
+          <NameAddress>
+            <Name1>Zane Vilka</Name1>
+            <Name2>29324904</Name2>
+            <Address1>9574</Address1>
+            <Address2>Rīgas Vaidavas ielas RIMI pakomāts, Vaidavas iela 9B</Address2>
+            <City>Rīga</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>zalitezane@inbox.lv</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334939</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14259</Note>
+    <ResellerNote>14259</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

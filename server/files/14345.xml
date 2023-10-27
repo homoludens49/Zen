@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-25</POIssuedDate>
+    <PreferredShippingDate>2023-10-25</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14345</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14345</ID>
+          <NameAddress>
+            <Name1>Ance Rucina</Name1>
+            <Name2>26078125</Name2>
+            <Address1>9299</Address1>
+            <Address2>Limbažu Pasta ielas pakomāts, Pasta iela 1</Address2>
+            <City>Limbažu novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>arucina@gmail.com</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334936</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14345</Note>
+    <ResellerNote>14345</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

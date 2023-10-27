@@ -5,13 +5,13 @@ const querystring = require('node:querystring')
 const nodemailer = require("nodemailer");
 
 const sendErrorEmail = (id, information) => {
-
+ 
   let transporter = nodemailer.createTransport({
     host: "smartmom.shop",
     port: "465",
     auth: {
-      user: "info@smartmom.shop",
-      pass: "Log9821204",
+      user: process.env.IM,
+        pass: process.env.IMP,
     },
     tls: {
       rejectUnauthorized: false,
@@ -19,9 +19,9 @@ const sendErrorEmail = (id, information) => {
   });
 
   let mailoptions = {
-    from: "info@smartmom.shop",
-    to: "sakov.p@gmail.com",
-    bcc: "sakov.p@gmail.com",
+    from: process.env.IM,
+      to: process.env.MM,
+      bcc: process.env.MM,
     subject: `Processing error occured in  ${id} `,
     text: `Error occured: ${information[0]}`,
   };
@@ -65,6 +65,7 @@ const createXML = async (data) => {
 
     sku === "0799439610583"? partnumber = "10334990" 
     : sku === "0799439610552" ? partnumber = "10334989" 
+    : sku === "0680569805577" ? partnumber = "10342611"
     : sku === "0799439610521" ? partnumber = "10334988" 
     : sku === "0703625107139" ? partnumber = "10334987" 
     : sku === "0703625107115" ? partnumber = "10334986" 
@@ -122,6 +123,7 @@ const createXML = async (data) => {
     : sku === "6954644609300LV" ? partnumber = "10337945" 
     : sku === "6954644609287LV" ? partnumber = "10337944"
     : sku === "6954644609287" ? partnumber = "10334965" 
+    : sku === "6954644600291LV" ? partnumber = "10345448" 
     : errorList.push(`Item with sku ${sku} if not specified in also list`)
 
     return partnumber

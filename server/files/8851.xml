@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-15</POIssuedDate>
+    <PreferredShippingDate>2023-10-15</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8851</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8851</ID>
+          <NameAddress>
+            <Name1>Laura Rozefelde</Name1>
+            <Name2>22067385</Name2>
+            <Address1>9136</Address1>
+            <Address2>Rojas Maxima X pakomāts, Selgas iela 2</Address2>
+            <City>Talsu novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>toms.rozefelds@gmail.com</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334936</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8851</Note>
+    <ResellerNote>8851</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

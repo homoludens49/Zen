@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-16</POIssuedDate>
+    <PreferredShippingDate>2023-10-16</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14312</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14312</ID>
+          <NameAddress>
+            <Name1>Darja Bodnare</Name1>
+            <Name2>26851317</Name2>
+            <Address1>9109</Address1>
+            <Address2>Rīgas Stirnu ielas RIMI pakomāts, Stirnu iela 26</Address2>
+            <City>Rīga</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>algoritms3@gmail.com</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334961</ProductID>
+      <Quantity>
+        <QtyRequested>2</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14312</Note>
+    <ResellerNote>14312</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

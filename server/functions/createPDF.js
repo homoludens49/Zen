@@ -5,6 +5,7 @@ const puppeteerCreatePdf = async (data) => {
 
  
   const sendEmail = (information) => {
+
     let transporter = nodemailer.createTransport({
       host: "smartmom.shop",
       port: "465",
@@ -19,7 +20,7 @@ const puppeteerCreatePdf = async (data) => {
 
     let mailoptions = {
       from: process.env.IM,
-      to: information.shipping.email,
+      to: information.billing.email,
       bcc: process.env.MM,
       subject: `Elektroniska pavadzime pasutijumam ${information.id} no Smartmom.shop`,
       text: "Labdien, \nPaldies ka pasūtījāt no Smartmom.shop! Jūsu pirkums tiks piegadāts 2 - 4 darba dienu laikā. Pielikumā ir elektroniskā pavadzīme. \nAr cieņu, Jūsu Smartmom.shop",
@@ -29,7 +30,7 @@ const puppeteerCreatePdf = async (data) => {
         },
       ],
     };
-
+    
     transporter.sendMail(mailoptions, function (err, info) {
       if (err) {
         console.log("Error: ", err);

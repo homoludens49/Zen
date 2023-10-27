@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const cors = require('cors');
 const Product = require ('../models/product')
-const updateStock = require ('../../middleware/updateshop')
 router.use(cors());
 
 

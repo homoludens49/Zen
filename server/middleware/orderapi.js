@@ -4,7 +4,7 @@ const AutoOrder = require("../api/models/autoOrder");
 const orderApi = () => {
   axios
     .get(
-      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=15&consumer_key=ck_c0ea57bb2ad12ac882f3da895304e18c2a39189f&consumer_secret=cs_015faf2496f59f93379193b3408b4f6994be7374`
+      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=35&consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`
     )
     .then((response) => {
       checkOrders(response.data);
@@ -16,7 +16,7 @@ const orderApi = () => {
 const orderApiAlilo = () => {
   axios
     .get(
-      `https://alilo.lv/wp-json/wc/v2/orders?per_page=16&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
+      `https://alilo.lv/wp-json/wc/v2/orders?per_page=20&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
     )
     .then((response) => {
       

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-14</POIssuedDate>
+    <PreferredShippingDate>2023-10-14</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14277</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14277</ID>
+          <NameAddress>
+            <Name1>Sabīne Aleksejeva</Name1>
+            <Name2>+37129792844</Name2>
+            <Address1>9947</Address1>
+            <Address2>Salaspils Skolas ielas RIMI pakomāts, Skolas iela 4A</Address2>
+            <City>Salaspils novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>sabinyxxx@inbox.lv</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334937</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14277</Note>
+    <ResellerNote>14277</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

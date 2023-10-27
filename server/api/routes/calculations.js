@@ -18,20 +18,21 @@ router.get("/stats", (req, res) => {
 
         // if (month.length < 2) month = "0" + month;
         // if (day.length < 2) day = "0" + day;
-
+       
         return [month, day, year].join("/");
       };
       const todaysOrders = orders.filter(
         (order) =>
           convertDate(order.orderDate) === new Date().toLocaleDateString()
       );
-
+      
       const thisMonthOrders = orders.filter(
         order =>
           order.orderDate.getMonth() === new Date().getMonth() &&
           order.orderDate.getFullYear() === new Date().getFullYear()
+         
       );
-
+      
       //console.log(thisMonthOrders)
       //sum all order.total
       const sumOrders = (orders) => {
