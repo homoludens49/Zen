@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-30</POIssuedDate>
+    <PreferredShippingDate>2023-10-30</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>8897</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>8897</ID>
+          <NameAddress>
+            <Name1>Ksenija Adaša</Name1>
+            <Name2>29450105</Name2>
+            <Address1>9130</Address1>
+            <Address2>Priekules TOP pakomāts, Galvenā iela 1</Address2>
+            <City>Dienvidkurzemes novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>ksenija27@inbox.lv</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334937</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>8897</Note>
+    <ResellerNote>8897</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

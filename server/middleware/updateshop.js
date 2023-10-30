@@ -336,13 +336,13 @@ const updateShop = async () => {
 
         axios
         .get(
-          `https://smartmom.shop/wp-json/wc/v3/products?sku=${sku}&consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a`
+          `https://smartmom.shop/wp-json/wc/v3/products?sku=${sku}&consumer_key=&consumer_secret=`
         )
         .then((response) => {
           id = response.data[0].id;
           axios
             .put(
-              `https://smartmom.shop/wp-json/wc/v3/products/${id}?consumer_key=ck_580fcdbfc9bd331bd7471c716503b11432d35065&consumer_secret=cs_738a34b443cf792cd4c6938a62e6b6dd0508fb2a`,
+              `https://smartmom.shop/wp-json/wc/v3/products/${id}?consumer_key=&consumer_secret=`,
               { stock_quantity: quantity }
             )
             .then((response) => {

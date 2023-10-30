@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-30</POIssuedDate>
+    <PreferredShippingDate>2023-10-30</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14382</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14382</ID>
+          <NameAddress>
+            <Name1>Jelena Muhordova</Name1>
+            <Name2>29979006</Name2>
+            <Address1>9188</Address1>
+            <Address2>Rīgas T/C Gaiļezers pakomāts, Gaiļezera iela 8</Address2>
+            <City>Rīga</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>lena.ava.12@gmail.com</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334961</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14382</Note>
+    <ResellerNote>14382</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

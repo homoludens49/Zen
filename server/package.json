@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vue/cli": "^5.0.8",
-    "axios": "^0.21.0",
+    "axios": "^1.6.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^8.6.0",
@@ -24,7 +23,6 @@
     "nodemailer": "^6.4.17",
     "nodemon": "^2.0.22",
     "puppeteer": "^5.5.0",
-    "vue": "^2.6.11",
     "woocommerce-api": "^1.4.2",
     "xlsx": "^0.18.5",
     "xml": "^1.0.1",
