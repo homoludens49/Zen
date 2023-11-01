@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-10-30</POIssuedDate>
+    <PreferredShippingDate>2023-10-30</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14388</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14388</ID>
+          <NameAddress>
+            <Name1>Solveiga Jansone-Krasevska</Name1>
+            <Name2>+37126367242</Name2>
+            <Address1>9249</Address1>
+            <Address2>Plakanciema pakomāts, </Address2>
+            <City>Ķekavas novads</City>
+            <PostalCode>1000</PostalCode>
+            <Country>LV</Country>
+            <EMail>solveiga.j@inbox.lv</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334936</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14388</Note>
+    <ResellerNote>14388</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>

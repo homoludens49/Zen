@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrder>
+  <OrderHeader>
+    <POIssuedDate>2023-11-1</POIssuedDate>
+    <PreferredShippingDate>2023-11-1</PreferredShippingDate>
+    <PartialShipmentAllowed>1</PartialShipmentAllowed>
+    <OrderNumber>
+      <BuyerOrderNumber>14399</BuyerOrderNumber>
+    </OrderNumber>
+    <Transport>
+      <Carrier>OI</Carrier>
+      <DeliveryDeadline>0</DeliveryDeadline>
+    </Transport>
+    <OrderParties>
+      <BuyerParty>
+        <Party>
+          <ID>11269801</ID>
+        </Party>
+      </BuyerParty>
+      <SupplierParty>
+        <Party>
+          <ID>2</ID>
+        </Party>
+      </SupplierParty>
+      <DeliveryParty>
+        <Party>
+          <ID>14399</ID>
+          <NameAddress>
+            <Name1>Elmira Mamedova-Eensaar</Name1>
+            <Name2>56955868</Name2>
+            <Address1>96006</Address1>
+            <Address2>Tallinna Tondi Selveri pakiautomaat, A. H. Tammsaare tee 62</Address2>
+            <City>Tallinn</City>
+            <PostalCode>1000</PostalCode>
+            <Country>EE</Country>
+            <EMail>elmira278@gmail.com</EMail>
+          </NameAddress>
+        </Party>
+      </DeliveryParty>
+    </OrderParties>
+  </OrderHeader>
+  <ListofOrderDetails>
+    <OrderLine Type="P">
+      <LineNumber>1</LineNumber>
+      <ProductID>10334961</ProductID>
+      <Quantity>
+        <QtyRequested>1</QtyRequested>
+      </Quantity>
+      <WareHouseID>1</WareHouseID>
+    </OrderLine>
+  </ListofOrderDetails>
+  <OrderSummary>
+    <Note>14399</Note>
+    <ResellerNote>14399</ResellerNote>
+  </OrderSummary>
+</PurchaseOrder>
