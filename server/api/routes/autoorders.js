@@ -15,34 +15,58 @@ router.get("/", (req, res) => {
 });
 
 router.post("/autoOrders", (req, res, next) => {
+ 
   const data = req.body;
-
   puppeteerCreatePdf(data);
   createXML(data);
 
   
+  const updateOrderStatus = async (id, url, consumerKey, consumerSecret) => {
+    try {
+      await axios.put(
+        `${url}/wp-json/wc/v3/orders/${id}?consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`,
+        { status: "completed" }
+      );
+    } catch (error) {
+      console.error(`Error updating order status for ID ${id}:`, error.message);
+      // Handle the error as needed
+    }
+  };
+  
+  const processOrder = (data) => {
+    const { id, payment_url } = data;
+  
+    if (payment_url.includes('alilo')) {
+      updateOrderStatus(id, 'https://alilo.lv', process.env.AK, process.env.AC);
+    } else {
+      updateOrderStatus(id, 'https://smartmom.shop', process.env.SMK, process.env.SMC);
+    }
+  };
+  
+  processOrder(data);
+
+
+  // const updateSmartmomOrderStatus = async (id) => {
+  //   await axios.put(
+  //     `https://smartmom.shop/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`,
+  //     { status: "completed" }
+  //   );
+  // };
+  // const updateAliloOrderStatus = async (id) => {
+  
+  //   await axios.put(
+  //     `https://alilo.lv/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`,
+  //     { status: "completed" }
+  //   );
+  // };
+
+
+  // if(data.payment_url.includes('alilo')){
+  //   updateAliloOrderStatus(data.id)
+  // }else{
+  //   updateSmartmomOrderStatus(data.id)
+  // }
  
-
-
-  const updateSmartmomOrderStatus = async (id) => {
-    await axios.put(
-      `https://smartmom.shop/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`,
-      { status: "completed" }
-    );
-  };
-  const updateAliloOrderStatus = async (id) => {
-    await axios.put(
-      `https://alilo.lv/wp-json/wc/v3/orders/${id}?consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`,
-      { status: "completed" }
-    );
-  };
-
-  if(data.payment_url.includes('alilo')){
-    updateAliloOrderStatus(data.id)
-  }else{
-    updateSmartmomOrderStatus(data.id)
-  }
-
  
 
   
@@ -169,18 +193,24 @@ router.post("/autoOrders", (req, res, next) => {
           });
       }
     } else {
+      
+     
       Product.updateOne(
         { sku: items[i].sku, warehouse: "Omniva" },
         { $inc: { quantity: -items[i].quantity } }
       )
         .then(function (product) {
+         
           console.log(`Order ${req.body.id} successfully processed`);
+          res.send('zdarova zaebal');
         })
         .catch((err) => {
+        
           console.log(err);
         });
     }
-  }
+   
+  } 
 });
 
 module.exports = router;

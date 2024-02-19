@@ -1,6 +1,7 @@
 const xml2js = require("xml2js");
 const fs = require("fs");
 const axios = require("axios");
+axios.defaults.timeout = 24000
 const querystring = require('node:querystring')
 const nodemailer = require("nodemailer");
 
@@ -119,6 +120,14 @@ const createXML = async (data) => {
     : sku === "LD4434" ? partnumber = "10336145" 
     : sku === "LD4469" ? partnumber = "10336144"
     : sku === "LD4482" ? partnumber = "10336143" 
+    : sku === "ZA-BILLY-02" ? partnumber = "10354173" 
+    : sku === "LD7095" ? partnumber = "10354086"
+    : sku === "LD7078" ? partnumber = "10354085" 
+    : sku === "LD4763" ? partnumber = "10354077" 
+    : sku === "LD7081" ? partnumber = "10354065"
+    : sku === "LD7080" ? partnumber = "10354064" 
+    : sku === "ZA-TIM-01" ? partnumber = "10353844" 
+    : sku === "ZA-BILLY-01" ? partnumber = "10353828"
     : sku === "6954644609300" ? partnumber = "10334966" 
     : sku === "6954644609300LV" ? partnumber = "10337945" 
     : sku === "6954644609287LV" ? partnumber = "10337944"

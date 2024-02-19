@@ -1,65 +1,55 @@
 const axios = require("axios");
-const AutoOrder = require("../api/models/autoOrder");
 
-const orderApi = () => {
-  axios
-    .get(
-      `https://smartmom.shop/wp-json/wc/v2/orders?per_page=35&consumer_key=${process.env.SMK}&consumer_secret=${process.env.SMC}`
-    )
-    .then((response) => {
-      checkOrders(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-const orderApiAlilo = () => {
-  axios
-    .get(
-      `https://alilo.lv/wp-json/wc/v2/orders?per_page=20&consumer_key=${process.env.AK}&consumer_secret=${process.env.AC}`
-    )
-    .then((response) => {
-      
-      checkOrders(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-
-checkOrders = async (orders) => {
-  
-  var arr = [];
-  var newOrders = [];
- 
-  for (i = 0; i < orders.length; i++) {
-
-    orders[i].status === "processing"
-      ? newOrders.push(orders[i])
-      : null;
+const orderApi = async (url, consumerKey, consumerSecret) => {
+  try {
+    const response = await axios.get(
+      `${url}/wp-json/wc/v2/orders?per_page=1&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`
+    );
+    await checkOrders(response.data);
+  } catch (error) {
+    console.log(error);
   }
-  
-  // for (i = 0; i < arr.length; i++) {
-  //   const item = await AutoOrder.findOne({ orderId: arr[i].id });
-  //   !item ? newOrders.push(arr[i]) : null;
-  // }
-  
+};
 
+const orderApiAlilo = async (url, consumerKey, consumerSecret) => {
+  try {
+    const response = await axios.get(
+      `${url}/wp-json/wc/v2/orders?per_page=1&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`
+    );
+    await checkOrders(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const checkOrders = async (orders) => {
+  const newOrders = orders.filter(order => order.status === 'processing');
   if (newOrders.length > 0) {
-    for (let i = 0; i < newOrders.length; i++) {
-      const res = await axios.post(
-        "http://localhost:1337/autoorders/autoOrders",
-        newOrders[i]
-      );
-      return res;
-    }
+    const responses = await Promise.all(
+      newOrders.map(async (order) => {
+        try {
+          return await axios.post('http://localhost:1337/autoorders/autoOrders', order);
+        } catch (error) {
+          // Handle the error if needed
+          console.error(`Error processing order: ${order.id}`, error.message);
+          return null;
+        }
+      })
+    );
+
+    // Optionally, you can return all responses or handle them as needed
+    return responses;
   } else {
-    console.log("there is no new orders");
+    console.log('There are no new orders');
+    return null; // or handle accordingly
   }
 };
 
-module.exports = setInterval(orderApi, 33120);
-module.exports = setInterval(orderApiAlilo, 43700);
+const processOrderApis = async () => {
+  await orderApi('https://smartmom.shop', process.env.SMK, process.env.SMC);
+  await orderApiAlilo('https://alilo.lv', process.env.AK, process.env.AC);
+};
 
-// module.exports = setInterval(orderApi, 3600000)
+module.exports = setInterval(processOrderApis, 15000)
+
+
