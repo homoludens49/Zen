@@ -1,7 +1,7 @@
 const xml2js = require("xml2js");
 const fs = require("fs");
 const axios = require("axios");
-axios.defaults.timeout = 24000
+axios.defaults.timeout = 54000
 const querystring = require('node:querystring')
 const nodemailer = require("nodemailer");
 
@@ -133,6 +133,7 @@ const createXML = async (data) => {
     : sku === "6954644609287LV" ? partnumber = "10337944"
     : sku === "6954644609287" ? partnumber = "10334965" 
     : sku === "6954644600291LV" ? partnumber = "10345448" 
+    : sku === "ZA-ROCKER-01" ? partnumber = "10362366" 
     : errorList.push(`Item with sku ${sku} if not specified in also list`)
 
     return partnumber
@@ -204,7 +205,7 @@ const createXML = async (data) => {
 
 let url = process.env.AURL;
   let result = await axios.get(url, {
-    timeout: 4000,
+    timeout: 24000,
     responseType: "text",
     maxContentLength: 65536,
   });
